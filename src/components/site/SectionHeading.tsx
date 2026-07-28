@@ -1,0 +1,45 @@
+import { cn } from "@/lib/utils";
+import type { ReactNode } from "react";
+
+export function SectionHeading({
+  eyebrow,
+  title,
+  description,
+  align = "left",
+  className,
+}: {
+  eyebrow?: string;
+  title: ReactNode;
+  description?: ReactNode;
+  align?: "left" | "center";
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "max-w-2xl",
+        align === "center" && "mx-auto text-center",
+        className,
+      )}
+    >
+      {eyebrow ? (
+        <div
+          className={cn(
+            "inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-xs font-medium tracking-wide text-primary uppercase",
+          )}
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+          {eyebrow}
+        </div>
+      ) : null}
+      <h2 className="mt-5 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+        {title}
+      </h2>
+      {description ? (
+        <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+          {description}
+        </p>
+      ) : null}
+    </div>
+  );
+}
