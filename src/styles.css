@@ -158,3 +158,24 @@
 @utility shadow-glow {
   box-shadow: var(--shadow-glow);
 }
+
+/* Arabic typography */
+html.lang-ar body,
+html.lang-ar h1,
+html.lang-ar h2,
+html.lang-ar h3,
+html.lang-ar h4,
+html.lang-ar h5 {
+  font-family: "IBM Plex Sans Arabic", var(--font-sans);
+  letter-spacing: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
