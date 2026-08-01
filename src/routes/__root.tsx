@@ -81,16 +81,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "مركز بيرل لطب الأسنان | Pearl Dental Center — Kuwait" },
+      { title: "مركز بيرل لطب الأسنان | Pearl Dental Center — Salmiya, Kuwait" },
       {
         name: "description",
         content:
-          "مركز بيرل لطب الأسنان في السالمية، الكويت — زراعة، تقويم، تبييض وتجميل الأسنان بأيدي استشاريين.",
+          "مركز بيرل لطب الأسنان في السالمية، الكويت — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
       },
       { name: "author", content: "Pearl Dental Center" },
       { property: "og:site_name", content: "Pearl Dental Center | مركز بيرل لطب الأسنان" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "مركز بيرل لطب الأسنان | Pearl Dental Center — Salmiya, Kuwait" },
+      { name: "twitter:title", content: "مركز بيرل لطب الأسنان | Pearl Dental Center — Salmiya, Kuwait" },
+      { property: "og:description", content: "مركز بيرل لطب الأسنان في السالمية، الكويت — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص." },
+      { name: "twitter:description", content: "مركز بيرل لطب الأسنان في السالمية، الكويت — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9ee7e790-2121-4f72-9420-a4aa2ead3d56/id-preview-10dedb9c--1cadf062-341c-4cb1-b952-5dd3c6e3cb64.lovable.app-1785616363685.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9ee7e790-2121-4f72-9420-a4aa2ead3d56/id-preview-10dedb9c--1cadf062-341c-4cb1-b952-5dd3c6e3cb64.lovable.app-1785616363685.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

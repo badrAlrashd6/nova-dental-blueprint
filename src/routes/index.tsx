@@ -26,10 +26,10 @@ export const Route = createFileRoute("/")({
         content:
           "مركز بيرل لطب الأسنان في السالمية، الكويت — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
       },
-      { property: "og:title", content: "مركز بيرل لطب الأسنان | Pearl Dental Center" },
+      { property: "og:title", content: "مركز بيرل لطب الأسنان | Pearl Dental Center — Salmiya, Kuwait" },
       {
         property: "og:description",
-        content: "زراعة، تقويم، ابتسامة هوليوود وتبييض في السالمية، الكويت.",
+        content: "مركز بيرل لطب الأسنان في السالمية، الكويت — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
       },
       { property: "og:url", content: "/" },
     ],
