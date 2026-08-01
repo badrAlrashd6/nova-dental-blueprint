@@ -27,6 +27,14 @@ import hollywood from "@/assets/service-hollywood.jpg";
 import whitening from "@/assets/service-whitening.jpg";
 import general from "@/assets/service-general.jpg";
 import pediatric from "@/assets/service-pediatric.jpg";
+import veneersImg from "@/assets/service-veneers.jpg";
+import rootcanalImg from "@/assets/service-rootcanal.jpg";
+import emergencyImg from "@/assets/service-emergency.jpg";
+import cosmeticImg from "@/assets/service-cosmetic.jpg";
+
+import patient1 from "@/assets/patient-1.jpg";
+import patient2 from "@/assets/patient-2.jpg";
+import patient3 from "@/assets/patient-3.jpg";
 
 import doc1 from "@/assets/doctor-1.jpg";
 import doc2 from "@/assets/doctor-2.jpg";
@@ -107,7 +115,7 @@ export const services: Service[] = [
   {
     slug: "veneers",
     icon: Smile,
-    image: hollywood,
+    image: veneersImg,
     alt: { ar: "قشور خزفية رفيعة على سطح رخامي", en: "Thin porcelain veneers on a marble surface" },
     title: { ar: "القشور الخزفية", en: "Veneers" },
     description: {
@@ -144,7 +152,7 @@ export const services: Service[] = [
   {
     slug: "root-canal",
     icon: Microscope,
-    image: general,
+    image: rootcanalImg,
     alt: { ar: "غرفة علاج أسنان حديثة", en: "Modern dental treatment room" },
     title: { ar: "علاج الجذور", en: "Root Canal" },
     description: {
@@ -200,7 +208,7 @@ export const services: Service[] = [
   {
     slug: "emergency",
     icon: HeartPulse,
-    image: general,
+    image: emergencyImg,
     alt: { ar: "وحدة طوارئ أسنان مجهزة", en: "Equipped dental emergency unit" },
     title: { ar: "طوارئ الأسنان", en: "Emergency Dentistry" },
     description: {
@@ -218,7 +226,7 @@ export const services: Service[] = [
   {
     slug: "cosmetic",
     icon: Sparkles,
-    image: whitening,
+    image: cosmeticImg,
     alt: { ar: "تفاصيل تجميل الأسنان في عيادة فاخرة", en: "Cosmetic dentistry detail in a luxury clinic" },
     title: { ar: "تجميل الأسنان", en: "Cosmetic Dentistry" },
     description: {
@@ -401,6 +409,8 @@ export type Testimonial = {
   quote: L;
   initials: string;
   rating: number;
+  /** Optional portrait — swap for a real patient photo when available. */
+  avatar?: string;
 };
 
 export const testimonials: Testimonial[] = [
@@ -409,6 +419,7 @@ export const testimonials: Testimonial[] = [
     treatment: { ar: "ابتسامة هوليوود", en: "Hollywood Smile" },
     treatmentSlug: "hollywood-smile",
     initials: "NA",
+    avatar: patient1,
     rating: 5,
     quote: {
       ar: "شرحوا لي كل خطوة قبل ما نبدأ، وجربت شكل الابتسامة قبل التثبيت. النتيجة طبيعية أكثر مما توقعت.",
@@ -420,6 +431,7 @@ export const testimonials: Testimonial[] = [
     treatment: { ar: "زراعة الأسنان", en: "Dental Implants" },
     treatmentSlug: "implants",
     initials: "KM",
+    avatar: patient2,
     rating: 5,
     quote: {
       ar: "كنت متردد سنتين بسبب الخوف من الجراحة. الزراعة خلصت خلال ساعة ورجعت للدوام في اليوم التالي.",
@@ -431,6 +443,7 @@ export const testimonials: Testimonial[] = [
     treatment: { ar: "تقويم الأسنان", en: "Orthodontics" },
     treatmentSlug: "orthodontics",
     initials: "MH",
+    avatar: patient3,
     rating: 5,
     quote: {
       ar: "التقويم الشفاف ما أثر على شغلي ولا اجتماعاتي، والمتابعة الشهرية كانت منظمة جداً.",
@@ -442,6 +455,7 @@ export const testimonials: Testimonial[] = [
     treatment: { ar: "علاج الجذور", en: "Root Canal" },
     treatmentSlug: "root-canal",
     initials: "AS",
+    avatar: patient2,
     rating: 5,
     quote: {
       ar: "جيت بألم حاد في الليل واستقبلوني في نفس اليوم. صراحة ما حسيت بأي ألم أثناء العلاج.",
@@ -453,6 +467,7 @@ export const testimonials: Testimonial[] = [
     treatment: { ar: "تبييض الأسنان", en: "Teeth Whitening" },
     treatmentSlug: "whitening",
     initials: "DA",
+    avatar: patient1,
     rating: 5,
     quote: {
       ar: "جلسة وحدة وفرق واضح جداً، وما عانيت من حساسية مثل التجارب السابقة في مراكز ثانية.",
@@ -464,6 +479,7 @@ export const testimonials: Testimonial[] = [
     treatment: { ar: "طب أسنان الأطفال", en: "Pediatric Dentistry" },
     treatmentSlug: "pediatric",
     initials: "FD",
+    avatar: patient3,
     rating: 5,
     quote: {
       ar: "بنتي كانت ترفض أي عيادة أسنان، الحين تسأل متى الموعد الجاي. الفريق يعرف كيف يتعامل مع الأطفال.",
