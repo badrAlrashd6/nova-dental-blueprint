@@ -21,7 +21,7 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-semibold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">الصفحة غير موجودة · Page not found</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           The page you're looking for doesn't exist or has been moved.
         </p>
@@ -81,14 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nova Dental Clinic — Premium Dentistry in Kuwait" },
+      { title: "مركز بيرل لطب الأسنان | Pearl Dental Center — Kuwait" },
       {
         name: "description",
         content:
-          "Nova Dental Clinic in Salmiya, Kuwait. Implants, veneers, whitening, aligners and cosmetic dentistry in a calm, boutique setting.",
+          "مركز بيرل لطب الأسنان في السالمية، الكويت — زراعة، تقويم، تبييض وتجميل الأسنان بأيدي استشاريين.",
       },
-      { name: "author", content: "Nova Dental Clinic" },
-      { property: "og:site_name", content: "Nova Dental Clinic" },
+      { name: "author", content: "Pearl Dental Center" },
+      { property: "og:site_name", content: "Pearl Dental Center | مركز بيرل لطب الأسنان" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
