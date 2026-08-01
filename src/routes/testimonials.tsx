@@ -1,21 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Star } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Section } from "@/components/site/Section";
+import { Reveal } from "@/components/site/Reveal";
+import { TestimonialSlider } from "@/components/site/TestimonialSlider";
+import { CTASection } from "@/components/site/CTASection";
+import { testimonials } from "@/content/clinic";
+import { useLang } from "@/lib/i18n";
+import { navLinks, ui } from "@/lib/site";
 
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
-      { title: "Patient Stories — Nova Dental Clinic" },
+      { title: "آراء المرضى | مركز بيرل لطب الأسنان — Patient Stories" },
       {
         name: "description",
         content:
-          "Real stories from Nova Dental patients across Kuwait — implants, veneers, whitening and orthodontic transformations.",
+          "تجارب حقيقية لمرضى مركز بيرل لطب الأسنان في الكويت: زراعة، تقويم، تبييض وتصميم ابتسامة.",
       },
-      { property: "og:title", content: "Patient Stories — Nova Dental Clinic" },
+      { property: "og:title", content: "آراء المرضى | مركز بيرل لطب الأسنان" },
       {
         property: "og:description",
-        content:
-          "Real patient stories and smile transformations from Nova Dental, Kuwait.",
+        content: "قصص ابتسامة حقيقية من مرضى مركز بيرل في السالمية، الكويت.",
       },
       { property: "og:url", content: "/testimonials" },
     ],
@@ -25,18 +31,65 @@ export const Route = createFileRoute("/testimonials")({
 });
 
 function TestimonialsPage() {
+  const { t } = useLang();
+  const crumb = navLinks.find((l) => l.to === "/testimonials")!.label;
+
   return (
     <>
       <PageHero
-        eyebrow="Patient Stories"
-        title="Smiles, in their own words."
-        description="A quiet collection of transformations from the Nova chair — implants, veneers, aligners and whitening."
+        eyebrow={t(ui.testiHeroEyebrow)}
+        breadcrumb={t(crumb)}
+        title={t(ui.testiHeroTitle)}
+        description={t(ui.testiHeroDesc)}
       />
-      <Section>
-        <p className="mx-auto max-w-2xl text-center text-muted-foreground">
-          Full testimonials carousel with before/after imagery will be built next.
-        </p>
+
+      <Section className="pt-0">
+        <TestimonialSlider />
       </Section>
+
+      <Section className="bg-secondary/30 pt-0">
+        <div className="grid gap-6 pt-20 sm:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((item, i) => (
+            <Reveal
+              key={item.name.en}
+              delay={i * 70}
+              className="flex h-full flex-col rounded-3xl border border-border bg-card p-7 shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-elevated"
+            >
+              <div className="flex gap-0.5">
+                {Array.from({ length: item.rating }).map((_, s) => (
+                  <Star key={s} className="h-3.5 w-3.5 fill-accent text-accent" aria-hidden />
+                ))}
+              </div>
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {t(item.quote)}
+              </p>
+              <div className="mt-6 flex items-center gap-3">
+                {item.avatar ? (
+                  <img
+                    src={item.avatar}
+                    alt={t(item.name)}
+                    width={96}
+                    height={96}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-11 w-11 rounded-full border border-border object-cover"
+                  />
+                ) : (
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary">
+                    {item.initials}
+                  </span>
+                )}
+                <div>
+                  <p className="text-sm font-semibold text-foreground">{t(item.name)}</p>
+                  <p className="text-xs text-muted-foreground">{t(item.treatment)}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <CTASection />
     </>
   );
 }
