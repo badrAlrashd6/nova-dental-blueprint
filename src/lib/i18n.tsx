@@ -13,7 +13,7 @@ export type Lang = "ar" | "en";
 /** A bilingual string pair used across all content and UI copy. */
 export type L = { ar: string; en: string };
 
-const STORAGE_KEY = "pearl-lang";
+const STORAGE_KEY = "nova-lang";
 
 type Ctx = {
   lang: Lang;

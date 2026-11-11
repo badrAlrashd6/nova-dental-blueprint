@@ -13,16 +13,16 @@ import { navLinks, ui } from "@/lib/site";
 export const Route = createFileRoute("/doctors")({
   head: () => ({
     meta: [
-      { title: "الأطباء | مركز بيرل لطب الأسنان — Our Doctors" },
+      { title: "الأطباء | عيادة نوفا لطب الأسنان — Our Doctors" },
       {
         name: "description",
         content:
-          "استشاريون وأخصائيون في زراعة الأسنان والتقويم والتجميل وطب أسنان الأطفال في مركز بيرل، السالمية، الكويت.",
+          "استشاريون وأخصائيون في زراعة الأسنان والتقويم والتجميل وطب أسنان الأطفال في عيادة نوفا، دمشق، سوريا.",
       },
-      { property: "og:title", content: "الأطباء | مركز بيرل لطب الأسنان" },
+      { property: "og:title", content: "الأطباء | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "تعرّف على الفريق الطبي في مركز بيرل لطب الأسنان بالكويت.",
+        content: "تعرّف على الفريق الطبي في عيادة نوفا لطب الأسنان بسوريا.",
       },
       { property: "og:url", content: "/doctors" },
     ],

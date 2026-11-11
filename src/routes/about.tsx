@@ -18,16 +18,16 @@ import care from "@/assets/patient-care.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "من نحن | مركز بيرل لطب الأسنان — About Pearl Dental Center" },
+      { title: "من نحن | عيادة نوفا لطب الأسنان — About Nova Dental Clinic" },
       {
         name: "description",
         content:
-          "تعرّف على مركز بيرل لطب الأسنان في السالمية: فريق استشاري، مختبر رقمي داخلي، وثمانِ غرف علاج خاصة منذ ٢٠١٤.",
+          "تعرّف على عيادة نوفا لطب الأسنان في دمشق: فريق استشاري، مختبر رقمي داخلي، وثمانِ غرف علاج خاصة منذ ٢٠١٤.",
       },
-      { property: "og:title", content: "من نحن | مركز بيرل لطب الأسنان" },
+      { property: "og:title", content: "من نحن | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "قصة مركز بيرل لطب الأسنان في السالمية، الكويت — قيمنا وفريقنا وتقنياتنا.",
+        content: "قصة عيادة نوفا لطب الأسنان في دمشق، سوريا — قيمنا وفريقنا وتقنياتنا.",
       },
       { property: "og:url", content: "/about" },
     ],
@@ -54,8 +54,8 @@ function AboutPage() {
             <Media
               src={aboutClinic}
               alt={t({
-                ar: "منطقة استقبال مركز بيرل لطب الأسنان",
-                en: "Reception area at Pearl Dental Center",
+                ar: "منطقة استقبال عيادة نوفا لطب الأسنان",
+                en: "Reception area at Nova Dental Clinic",
               })}
               imgClassName="aspect-[4/3]"
             />

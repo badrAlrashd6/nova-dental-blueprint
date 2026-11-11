@@ -13,16 +13,16 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/book")({
   head: () => ({
     meta: [
-      { title: "احجز موعد | مركز بيرل لطب الأسنان — Book an Appointment" },
+      { title: "احجز موعد | عيادة نوفا لطب الأسنان — Book an Appointment" },
       {
         name: "description",
         content:
-          "احجز موعدك في مركز بيرل لطب الأسنان بالسالمية، الكويت. اختر العلاج والطبيب والوقت المناسب ونؤكد خلال ساعة عمل واحدة.",
+          "احجز موعدك في عيادة نوفا لطب الأسنان في دمشق، سوريا. اختر العلاج والطبيب والوقت المناسب ونؤكد خلال ساعة عمل واحدة.",
       },
-      { property: "og:title", content: "احجز موعد | مركز بيرل لطب الأسنان" },
+      { property: "og:title", content: "احجز موعد | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "احجز استشارتك في مركز بيرل لطب الأسنان، السالمية، الكويت.",
+        content: "احجز استشارتك في عيادة نوفا لطب الأسنان، دمشق، سوريا.",
       },
       { property: "og:url", content: "/book" },
     ],
@@ -222,20 +222,26 @@ function BookPage() {
             <div className="rounded-[2rem] border border-border bg-card p-8 shadow-soft">
               <p className="text-sm font-semibold text-foreground">{t(ui.prefer)}</p>
               <div className="mt-5 flex flex-col gap-3">
-                <Button asChild variant="outline" className="rounded-full">
-                  <a href={site.phoneHref}>
-                    <Phone className="h-4 w-4 text-primary" />
-                    {t(ui.call)}
-                  </a>
-                </Button>
-                <Button asChild className="rounded-full bg-gradient-primary">
-                  <a href={site.whatsappHref} target="_blank" rel="noreferrer">
-                    <MessageCircle className="h-4 w-4" />
-                    {t(ui.whatsapp)}
-                  </a>
-                </Button>
+                {site.phoneHref && (
+                  <Button asChild variant="outline" className="rounded-full">
+                    <a href={site.phoneHref}>
+                      <Phone className="h-4 w-4 text-primary" />
+                      {t(ui.call)}
+                    </a>
+                  </Button>
+                )}
+                {site.whatsappHref && (
+                  <Button asChild className="rounded-full bg-gradient-primary">
+                    <a href={site.whatsappHref} target="_blank" rel="noreferrer">
+                      <MessageCircle className="h-4 w-4" />
+                      {t(ui.whatsapp)}
+                    </a>
+                  </Button>
+                )}
               </div>
-              <p className="mt-5 text-xs text-muted-foreground">{t(site.hours)}</p>
+              {!site.phoneHref && !site.whatsappHref && (
+                <p className="text-sm text-muted-foreground">{t(ui.contactPendingNote)}</p>
+              )}
             </div>
           </Reveal>
         </div>

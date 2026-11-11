@@ -28,28 +28,32 @@ export function CTASection() {
               <Button asChild size="lg" variant="secondary" className="rounded-full px-7">
                 <Link to="/book">{t(ui.bookNow)}</Link>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-full border-primary-foreground/40 bg-transparent px-7 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-              >
-                <a href={site.phoneHref}>
-                  <Phone className="h-4 w-4" />
-                  {t(ui.call)}
-                </a>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="ghost"
-                className="rounded-full px-7 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-              >
-                <a href={site.whatsappHref} target="_blank" rel="noreferrer">
-                  <MessageCircle className="h-4 w-4" />
-                  {t(ui.whatsapp)}
-                </a>
-              </Button>
+              {site.phoneHref && (
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-primary-foreground/40 bg-transparent px-7 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                >
+                  <a href={site.phoneHref}>
+                    <Phone className="h-4 w-4" />
+                    {t(ui.call)}
+                  </a>
+                </Button>
+              )}
+              {site.whatsappHref && (
+                <Button
+                  asChild
+                  size="lg"
+                  variant="ghost"
+                  className="rounded-full px-7 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                >
+                  <a href={site.whatsappHref} target="_blank" rel="noreferrer">
+                    <MessageCircle className="h-4 w-4" />
+                    {t(ui.whatsapp)}
+                  </a>
+                </Button>
+              )}
             </div>
           </div>
         </Reveal>

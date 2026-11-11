@@ -1,49 +1,26 @@
 import type { L } from "./i18n";
+import { contactConfig, contactLinks, pendingLabel } from "@/config/contact";
 
-/** Demo Portfolio Content — fictional clinic details for presentation purposes. */
+/**
+ * Clinic identity. Contact details live in src/config/contact.ts and are
+ * placeholders until the real information is provided.
+ */
 export const site = {
-  name: { ar: "مركز بيرل لطب الأسنان", en: "Pearl Dental Center" } as L,
-  short: { ar: "بيرل", en: "Pearl" } as L,
-  phone: "+965 2222 8899",
-  phoneHref: "tel:+96522228899",
-  whatsapp: "+965 9900 8899",
-  whatsappHref: "https://wa.me/96599008899",
-  email: "hello@pearldental.kw",
-  emailHref: "mailto:hello@pearldental.kw",
-  mapsHref:
-    "https://www.google.com/maps/search/?api=1&query=Salem+Al+Mubarak+Street+Salmiya+Kuwait",
-  address: {
-    ar: "شارع سالم المبارك، مجمع بيرل، الدور الثالث، السالمية، الكويت",
-    en: "Salem Al Mubarak Street, Pearl Complex, 3rd Floor, Salmiya, Kuwait",
-  } as L,
-  city: { ar: "السالمية، الكويت", en: "Salmiya, Kuwait" } as L,
-  hours: {
-    ar: "السبت - الخميس · ٩ صباحاً - ٩ مساءً",
-    en: "Sat – Thu · 9:00 AM – 9:00 PM",
-  } as L,
-  hoursList: [
-    {
-      day: { ar: "السبت - الأربعاء", en: "Saturday – Wednesday" } as L,
-      time: { ar: "٩:٠٠ ص - ٩:٠٠ م", en: "9:00 AM – 9:00 PM" } as L,
-    },
-    {
-      day: { ar: "الخميس", en: "Thursday" } as L,
-      time: { ar: "٩:٠٠ ص - ٦:٠٠ م", en: "9:00 AM – 6:00 PM" } as L,
-    },
-    {
-      day: { ar: "الجمعة", en: "Friday" } as L,
-      time: { ar: "مغلق", en: "Closed" } as L,
-    },
-  ],
-  emergency: {
-    ar: "طوارئ الأسنان على مدار الساعة",
-    en: "24/7 dental emergency line",
-  } as L,
-  social: {
-    instagram: "https://instagram.com/pearldental.kw",
-    facebook: "https://facebook.com/pearldental.kw",
-    x: "https://x.com/pearldentalkw",
-  },
+  name: { ar: "عيادة نوفا لطب الأسنان", en: "Nova Dental Clinic" } as L,
+  short: { ar: "نوفا", en: "Nova" } as L,
+  city: { ar: "دمشق، سوريا", en: "Damascus, Syria" } as L,
+  currency: "SYP",
+  phone: contactConfig.phone,
+  phoneHref: contactLinks.phoneHref,
+  whatsapp: contactConfig.whatsapp,
+  whatsappHref: contactLinks.whatsappHref,
+  email: contactConfig.email,
+  emailHref: contactLinks.emailHref,
+  mapsHref: contactConfig.mapUrl,
+  address: contactConfig.address,
+  hoursList: contactConfig.businessHours,
+  social: contactConfig.social,
+  pending: pendingLabel,
 };
 
 export const navLinks: { to: string; label: L }[] = [
@@ -101,12 +78,12 @@ export const ui = {
   next: { ar: "التالي", en: "Next" } as L,
   optional: { ar: "اختياري", en: "optional" } as L,
   rights: {
-    ar: "© ٢٠٢٦ مركز بيرل لطب الأسنان. جميع الحقوق محفوظة.",
-    en: "© 2026 Pearl Dental Center. All rights reserved.",
+    ar: "© ٢٠٢٦ عيادة نوفا لطب الأسنان. جميع الحقوق محفوظة.",
+    en: "© 2026 Nova Dental Clinic. All rights reserved.",
   } as L,
   licensed: {
-    ar: "مرخّص من وزارة الصحة - دولة الكويت (بيانات تجريبية)",
-    en: "Licensed by the Ministry of Health, State of Kuwait (demo data)",
+    ar: "مشروع أكاديمي تجريبي — ليست عيادة عاملة فعلياً",
+    en: "Academic demonstration project — not an operating clinic",
   } as L,
 
   // Home sections
@@ -116,13 +93,13 @@ export const ui = {
     en: "Trust built one smile at a time",
   } as L,
   homeStatsDesc: {
-    ar: "أرقام تعكس ما بناه فريق بيرل خلال أكثر من عشر سنوات من العمل في السالمية.",
-    en: "Figures that reflect what the Pearl team has built over more than a decade in Salmiya.",
+    ar: "أرقام تعكس ما بناه فريق نوفا خلال أكثر من عشر سنوات من العمل في دمشق.",
+    en: "Figures that reflect what the Nova team has built over more than a decade in Damascus.",
   } as L,
-  whyEyebrow: { ar: "لماذا بيرل", en: "Why Pearl" } as L,
+  whyEyebrow: { ar: "لماذا نوفا", en: "Why Nova" } as L,
   whyTitle: {
-    ar: "لماذا يختارنا المرضى في الكويت",
-    en: "Why patients across Kuwait choose us",
+    ar: "لماذا يختارنا المرضى في سوريا",
+    en: "Why patients across Syria choose us",
   } as L,
   whyDesc: {
     ar: "تفاصيل صغيرة كثيرة تصنع الفرق بين زيارة أسنان عادية وتجربة علاجية مريحة.",
@@ -137,20 +114,20 @@ export const ui = {
   doctorsEyebrow: { ar: "الفريق الطبي", en: "The Team" } as L,
   doctorsTitle: { ar: "أطباء تثق بهم", en: "Specialists you can trust" } as L,
   doctorsDesc: {
-    ar: "كل طبيب في بيرل يحمل شهادة تخصص دولية ويواصل تدريبه سنوياً مع أكاديميات عالمية.",
-    en: "Every Pearl clinician holds an international specialist qualification and trains annually with global academies.",
+    ar: "كل طبيب في نوفا يحمل شهادة تخصص دولية ويواصل تدريبه سنوياً مع أكاديميات عالمية.",
+    en: "Every Nova clinician holds an international specialist qualification and trains annually with global academies.",
   } as L,
   baEyebrow: { ar: "قبل وبعد", en: "Before & After" } as L,
   baTitle: { ar: "نتائج حقيقية بمعايير طبيعية", en: "Real results, natural standards" } as L,
   baDesc: {
-    ar: "حرّك الفاصل لمشاهدة الفرق في حالة تصميم ابتسامة كاملة داخل مركز بيرل. (صور توضيحية)",
-    en: "Drag the divider to see the difference on a complete smile design at Pearl. (Illustrative imagery)",
+    ar: "حرّك الفاصل لمشاهدة الفرق في حالة تصميم ابتسامة كاملة داخل عيادة نوفا. (صور توضيحية)",
+    en: "Drag the divider to see the difference on a complete smile design at Nova. (Illustrative imagery)",
   } as L,
   testiEyebrow: { ar: "آراء المرضى", en: "Patient Stories" } as L,
   testiTitle: { ar: "ما يقوله مرضانا", en: "What our patients say" } as L,
   testiDesc: {
-    ar: "تجارب حقيقية من كرسي بيرل: زراعة، تقويم، تبييض وتصميم ابتسامة.",
-    en: "Real experiences from the Pearl chair: implants, orthodontics, whitening and smile design.",
+    ar: "تجارب حقيقية من كرسي نوفا: زراعة، تقويم، تبييض وتصميم ابتسامة.",
+    en: "Real experiences from the Nova chair: implants, orthodontics, whitening and smile design.",
   } as L,
   insurersEyebrow: { ar: "شركاء التأمين", en: "Insurance Partners" } as L,
   insurersTitle: { ar: "نتعامل مع أبرز شركات التأمين", en: "We work with leading insurers" } as L,
@@ -178,10 +155,10 @@ export const ui = {
 
   // About page
   aboutHeroEyebrow: { ar: "من نحن", en: "About Us" } as L,
-  aboutHeroTitle: { ar: "طب أسنان بمعايير عالمية في قلب السالمية", en: "World-class dentistry in the heart of Salmiya" } as L,
+  aboutHeroTitle: { ar: "طب أسنان بمعايير عالمية في قلب دمشق", en: "World-class dentistry in the heart of Damascus" } as L,
   aboutHeroDesc: {
-    ar: "تأسس مركز بيرل ليجمع بين الدقة الطبية والتقنيات الرقمية وتجربة إنسانية هادئة لكل مريض.",
-    en: "Pearl was founded to bring together clinical precision, digital technology and a calm, human experience for every patient.",
+    ar: "تأسس عيادة نوفا ليجمع بين الدقة الطبية والتقنيات الرقمية وتجربة إنسانية هادئة لكل مريض.",
+    en: "Nova was founded to bring together clinical precision, digital technology and a calm, human experience for every patient.",
   } as L,
   storyTitle: { ar: "قصتنا", en: "Our Story" } as L,
   storyP1: {
@@ -195,12 +172,12 @@ export const ui = {
   valuesEyebrow: { ar: "قيمنا", en: "Our Values" } as L,
   valuesTitle: { ar: "ما نلتزم به مع كل مريض", en: "What we commit to with every patient" } as L,
   timelineEyebrow: { ar: "مسيرتنا", en: "Milestones" } as L,
-  timelineTitle: { ar: "محطات في طريق بيرل", en: "Milestones along the way" } as L,
+  timelineTitle: { ar: "محطات في طريق نوفا", en: "Milestones along the way" } as L,
   facilityEyebrow: { ar: "المركز", en: "The Centre" } as L,
   facilityTitle: { ar: "بيئة علاجية مصممة بعناية", en: "A carefully designed clinical environment" } as L,
   facilityDesc: {
-    ar: "من غرف العلاج الخاصة إلى قسم التصوير الرقمي، كل مساحة في بيرل مصممة لتقليل التوتر ورفع دقة العلاج.",
-    en: "From private treatment suites to the digital imaging department, every space at Pearl is designed to reduce anxiety and raise clinical precision.",
+    ar: "من غرف العلاج الخاصة إلى قسم التصوير الرقمي، كل مساحة في نوفا مصممة لتقليل التوتر ورفع دقة العلاج.",
+    en: "From private treatment suites to the digital imaging department, every space at Nova is designed to reduce anxiety and raise clinical precision.",
   } as L,
   facilitySuite: { ar: "غرفة علاج خاصة", en: "Private treatment suite" } as L,
   facilityTech: { ar: "قسم التصوير الرقمي", en: "Digital imaging department" } as L,
@@ -211,25 +188,25 @@ export const ui = {
   servicesHeroEyebrow: { ar: "العلاجات", en: "Treatments" } as L,
   servicesHeroTitle: { ar: "خدماتنا العلاجية والتجميلية", en: "Our clinical and cosmetic services" } as L,
   servicesHeroDesc: {
-    ar: "عشر خدمات متخصصة تغطي الوقاية والعلاج والتجميل، ينفذها فريق من الاستشاريين داخل بيرل.",
-    en: "Ten specialist services spanning prevention, treatment and aesthetics, delivered by Pearl's consultant team.",
+    ar: "عشر خدمات متخصصة تغطي الوقاية والعلاج والتجميل، ينفذها فريق من الاستشاريين داخل نوفا.",
+    en: "Ten specialist services spanning prevention, treatment and aesthetics, delivered by Nova's consultant team.",
   } as L,
   benefitsLabel: { ar: "أبرز المزايا", en: "Key benefits" } as L,
 
   // Doctors page
   doctorsHeroEyebrow: { ar: "الأطباء", en: "Doctors" } as L,
-  doctorsHeroTitle: { ar: "الفريق الطبي في بيرل", en: "The Pearl clinical team" } as L,
+  doctorsHeroTitle: { ar: "الفريق الطبي في نوفا", en: "The Nova clinical team" } as L,
   doctorsHeroDesc: {
-    ar: "أربعة استشاريين وأخصائيين يجمعون بين التدريب الأوروبي والأمريكي والخبرة الطويلة في الكويت.",
-    en: "Four consultants and specialists combining European and North American training with long experience in Kuwait.",
+    ar: "أربعة استشاريين وأخصائيين يجمعون بين التدريب الأوروبي والأمريكي والخبرة الطويلة في سوريا.",
+    en: "Four consultants and specialists combining European and North American training with long experience in Syria.",
   } as L,
 
   // Testimonials page
   testiHeroEyebrow: { ar: "تجارب المرضى", en: "Patient Stories" } as L,
   testiHeroTitle: { ar: "قصص ابتسامة من مرضانا", en: "Smile stories from our patients" } as L,
   testiHeroDesc: {
-    ar: "مجموعة من تجارب المرضى في بيرل، من الزراعة والتقويم إلى التبييض وتصميم الابتسامة.",
-    en: "A collection of patient experiences at Pearl — from implants and orthodontics to whitening and smile design.",
+    ar: "مجموعة من تجارب المرضى في نوفا، من الزراعة والتقويم إلى التبييض وتصميم الابتسامة.",
+    en: "A collection of patient experiences at Nova — from implants and orthodontics to whitening and smile design.",
   } as L,
 
   // FAQ page
@@ -247,7 +224,7 @@ export const ui = {
 
   // Contact page
   contactHeroEyebrow: { ar: "تواصل معنا", en: "Contact" } as L,
-  contactHeroTitle: { ar: "نحن في شارع سالم المبارك", en: "Find us on Salem Al Mubarak Street" } as L,
+  contactHeroTitle: { ar: "تواصل مع عيادة نوفا في دمشق", en: "Get in touch with Nova in Damascus" } as L,
   contactHeroDesc: {
     ar: "مواقف مخصصة، خدمة صف السيارات، وغرف استشارة خاصة لاستقبال هادئ لكل مريض.",
     en: "Dedicated parking, valet service and private consultation rooms for a calm welcome.",
@@ -261,7 +238,7 @@ export const ui = {
 
   // Booking form
   bookHeroEyebrow: { ar: "حجز موعد", en: "Booking" } as L,
-  bookHeroTitle: { ar: "احجز موعدك في مركز بيرل", en: "Book your appointment at Pearl" } as L,
+  bookHeroTitle: { ar: "احجز موعدك في عيادة نوفا", en: "Book your appointment at Nova" } as L,
   bookHeroDesc: {
     ar: "املأ النموذج وسيتواصل معك منسق المرضى لتأكيد الموعد خلال ساعة عمل واحدة.",
     en: "Fill in the form and a patient coordinator will confirm your slot within one working hour.",

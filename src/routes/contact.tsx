@@ -7,6 +7,7 @@ import { Media } from "@/components/site/Media";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/site/CTASection";
 import { useLang } from "@/lib/i18n";
+import { ContactValue } from "@/components/site/ContactValue";
 import { navLinks, site, ui } from "@/lib/site";
 import location from "@/assets/clinic-location.jpg";
 import aboutClinic from "@/assets/about-clinic.jpg";
@@ -14,16 +15,16 @@ import aboutClinic from "@/assets/about-clinic.jpg";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "تواصل معنا | مركز بيرل لطب الأسنان — Contact" },
+      { title: "تواصل معنا | عيادة نوفا لطب الأسنان — Contact" },
       {
         name: "description",
         content:
-          "مركز بيرل لطب الأسنان — شارع سالم المبارك، مجمع بيرل، السالمية، الكويت. من السبت إلى الخميس ٩ صباحاً - ٩ مساءً.",
+          "طرق التواصل مع عيادة نوفا لطب الأسنان في دمشق، سوريا. بيانات التواصل تُضاف قريباً.",
       },
-      { property: "og:title", content: "تواصل معنا | مركز بيرل لطب الأسنان" },
+      { property: "og:title", content: "تواصل معنا | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "العنوان وساعات العمل وطرق التواصل مع مركز بيرل في السالمية، الكويت.",
+        content: "العنوان وساعات العمل وطرق التواصل مع عيادة نوفا في دمشق، سوريا.",
       },
       { property: "og:url", content: "/contact" },
     ],
@@ -58,7 +59,7 @@ function ContactPage() {
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-foreground">{t(ui.addressLabel)}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{t(site.address)}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{site.address ? t(site.address) : t(site.pending)}</p>
                 </div>
               </li>
               <li className="flex gap-4">
@@ -67,9 +68,7 @@ function ContactPage() {
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-foreground">{t(ui.phoneLabel)}</p>
-                  <a href={site.phoneHref} dir="ltr" className="mt-1 block text-sm text-muted-foreground hover:text-foreground">
-                    {site.phone}
-                  </a>
+                  <ContactValue value={site.phone} href={site.phoneHref} className="mt-1 block text-sm text-muted-foreground hover:text-foreground" />
                 </div>
               </li>
               <li className="flex gap-4">
@@ -78,9 +77,7 @@ function ContactPage() {
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-foreground">{t(ui.emailLabel)}</p>
-                  <a href={site.emailHref} dir="ltr" className="mt-1 block text-sm text-muted-foreground hover:text-foreground">
-                    {site.email}
-                  </a>
+                  <ContactValue value={site.email} href={site.emailHref} className="mt-1 block text-sm text-muted-foreground hover:text-foreground" />
                 </div>
               </li>
               <li className="flex gap-4">
@@ -90,31 +87,34 @@ function ContactPage() {
                 <div>
                   <p className="text-sm font-semibold text-foreground">{t(ui.workingHours)}</p>
                   <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
-                    {site.hoursList.map((h) => (
+                    {(site.hoursList ?? [{ day: ui.workingHours, time: site.pending }]).map((h) => (
                       <li key={h.day.en} className="flex justify-between gap-6">
                         <span>{t(h.day)}</span>
                         <span>{t(h.time)}</span>
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-3 text-xs text-primary">{t(site.emergency)}</p>
-                </div>
+                                  </div>
               </li>
             </ul>
 
             <div className="mt-9 flex flex-wrap gap-3">
-              <Button asChild className="rounded-full bg-gradient-primary px-7">
-                <a href={site.mapsHref} target="_blank" rel="noreferrer">
-                  <MapPin className="h-4 w-4" />
-                  {t(ui.directions)}
-                </a>
-              </Button>
-              <Button asChild variant="outline" className="rounded-full px-7">
-                <a href={site.whatsappHref} target="_blank" rel="noreferrer">
-                  <MessageCircle className="h-4 w-4 text-accent" />
-                  {t(ui.whatsapp)}
-                </a>
-              </Button>
+              {site.mapsHref && (
+                <Button asChild className="rounded-full bg-gradient-primary px-7">
+                  <a href={site.mapsHref} target="_blank" rel="noreferrer">
+                    <MapPin className="h-4 w-4" />
+                    {t(ui.directions)}
+                  </a>
+                </Button>
+              )}
+              {site.whatsappHref && (
+                <Button asChild variant="outline" className="rounded-full px-7">
+                  <a href={site.whatsappHref} target="_blank" rel="noreferrer">
+                    <MessageCircle className="h-4 w-4 text-accent" />
+                    {t(ui.whatsapp)}
+                  </a>
+                </Button>
+              )}
             </div>
           </Reveal>
 
@@ -122,14 +122,14 @@ function ContactPage() {
             <Media
               src={location}
               alt={t({
-                ar: "مدخل مجمع بيرل في السالمية مساءً",
-                en: "Entrance of Pearl Complex in Salmiya at dusk",
+                ar: "مدخل مبنى العيادة مساءً",
+                en: "Entrance of the clinic building at dusk",
               })}
               imgClassName="aspect-[4/3]"
             />
             <Media
               src={aboutClinic}
-              alt={t({ ar: "استقبال مركز بيرل لطب الأسنان", en: "Pearl Dental Center reception" })}
+              alt={t({ ar: "استقبال عيادة نوفا لطب الأسنان", en: "Nova Dental Clinic reception" })}
               imgClassName="aspect-[16/9]"
             />
           </Reveal>

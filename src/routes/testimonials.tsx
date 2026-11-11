@@ -12,16 +12,16 @@ import { navLinks, ui } from "@/lib/site";
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
-      { title: "آراء المرضى | مركز بيرل لطب الأسنان — Patient Stories" },
+      { title: "آراء المرضى | عيادة نوفا لطب الأسنان — Patient Stories" },
       {
         name: "description",
         content:
-          "تجارب حقيقية لمرضى مركز بيرل لطب الأسنان في الكويت: زراعة، تقويم، تبييض وتصميم ابتسامة.",
+          "تجارب حقيقية لمرضى عيادة نوفا لطب الأسنان في سوريا: زراعة، تقويم، تبييض وتصميم ابتسامة.",
       },
-      { property: "og:title", content: "آراء المرضى | مركز بيرل لطب الأسنان" },
+      { property: "og:title", content: "آراء المرضى | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "قصص ابتسامة حقيقية من مرضى مركز بيرل في السالمية، الكويت.",
+        content: "قصص ابتسامة حقيقية من مرضى عيادة نوفا في دمشق، سوريا.",
       },
       { property: "og:url", content: "/testimonials" },
     ],

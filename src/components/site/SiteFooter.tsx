@@ -5,6 +5,7 @@ import { Logo } from "./Logo";
 import { navLinks, site, ui } from "@/lib/site";
 import { featuredServices } from "@/content/clinic";
 import { useLang } from "@/lib/i18n";
+import { ContactValue } from "@/components/site/ContactValue";
 import type { ReactNode } from "react";
 
 export function SiteFooter() {
@@ -18,8 +19,8 @@ export function SiteFooter() {
             <Logo />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
               {t({
-                ar: "مركز أسنان متخصص في قلب السالمية يجمع بين الدقة الطبية وتجربة مريحة وهادئة لكل مريض.",
-                en: "A specialist dental centre in the heart of Salmiya, pairing clinical precision with a calm, considered patient experience.",
+                ar: "مركز أسنان متخصص في قلب دمشق يجمع بين الدقة الطبية وتجربة مريحة وهادئة لكل مريض.",
+                en: "A specialist dental centre in the heart of Damascus, pairing clinical precision with a calm, considered patient experience.",
               })}
             </p>
             <div className="mt-6 flex items-center gap-3">
@@ -66,19 +67,15 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-4 text-sm text-muted-foreground">
               <li className="flex gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span>{t(site.address)}</span>
+                <span>{site.address ? t(site.address) : t(site.pending)}</span>
               </li>
               <li className="flex gap-3">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <a href={site.phoneHref} dir="ltr" className="hover:text-foreground">
-                  {site.phone}
-                </a>
+                <ContactValue value={site.phone} href={site.phoneHref} className="hover:text-foreground" />
               </li>
               <li className="flex gap-3">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <a href={site.emailHref} dir="ltr" className="hover:text-foreground">
-                  {site.email}
-                </a>
+                <ContactValue value={site.email} href={site.emailHref} className="hover:text-foreground" />
               </li>
             </ul>
 
@@ -87,7 +84,7 @@ export function SiteFooter() {
                 {t(ui.workingHours)}
               </p>
               <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground">
-                {site.hoursList.map((h) => (
+                {(site.hoursList ?? [{ day: ui.workingHours, time: site.pending }]).map((h) => (
                   <li key={h.day.en} className="flex justify-between gap-4">
                     <span>{t(h.day)}</span>
                     <span className="text-foreground">{t(h.time)}</span>
@@ -113,7 +110,9 @@ function FooterTitle({ children }: { children: ReactNode }) {
   );
 }
 
-function SocialLink({ href, label, children }: { href: string; label: string; children: ReactNode }) {
+function SocialLink({ href, label, children }: { href: string | null; label: string; children: ReactNode }) {
+  // Social accounts are placeholders until configured — render nothing rather than a fake link.
+  if (!href) return null;
   return (
     <a
       href={href}

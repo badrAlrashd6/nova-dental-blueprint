@@ -64,17 +64,20 @@ export function SiteNav() {
       <div className="hidden border-b border-border/60 bg-foreground text-background lg:block">
         <Container className="flex h-10 items-center justify-between gap-6 text-xs">
           <div className="flex items-center gap-6">
+            <span className="rounded-full bg-background/15 px-2 py-0.5 font-medium">{t(ui.demoBadge)}</span>
             <span className="inline-flex items-center gap-2 opacity-90">
               <MapPin className="h-3.5 w-3.5" aria-hidden />
               {t(site.city)}
             </span>
-            <a href={site.phoneHref} className="inline-flex items-center gap-2 opacity-90 hover:opacity-100">
-              <Phone className="h-3.5 w-3.5" aria-hidden />
-              <span dir="ltr">{site.phone}</span>
-            </a>
+            {site.phoneHref && (
+              <a href={site.phoneHref} className="inline-flex items-center gap-2 opacity-90 hover:opacity-100">
+                <Phone className="h-3.5 w-3.5" aria-hidden />
+                <span dir="ltr">{site.phone}</span>
+              </a>
+            )}
             <span className="inline-flex items-center gap-2 opacity-90">
               <Clock className="h-3.5 w-3.5" aria-hidden />
-              {t(site.hours)}
+              {t(ui.workingHours)}: {t(site.pending)}
             </span>
           </div>
           <LangSwitch className="border-background/20 bg-background/10" />
@@ -106,12 +109,14 @@ export function SiteNav() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Button asChild variant="outline" size="lg" className="rounded-full">
-              <a href={site.phoneHref}>
-                <Phone className="h-4 w-4 text-primary" />
-                {t(ui.call)}
-              </a>
-            </Button>
+            {site.phoneHref && (
+              <Button asChild variant="outline" size="lg" className="rounded-full">
+                <a href={site.phoneHref}>
+                  <Phone className="h-4 w-4 text-primary" />
+                  {t(ui.call)}
+                </a>
+              </Button>
+            )}
             <Button asChild size="lg" className="rounded-full bg-gradient-primary shadow-soft transition-opacity hover:opacity-95">
               <Link to="/book">{t(ui.book)}</Link>
             </Button>

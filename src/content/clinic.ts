@@ -265,8 +265,8 @@ export const doctors: Doctor[] = [
     specialty: { ar: "استشارية تجميل وتركيبات الأسنان", en: "Consultant, Cosmetic & Prosthodontics" },
     experience: { ar: "١٤ سنة خبرة", en: "14 years of experience" },
     education: {
-      ar: "بكالوريوس طب الأسنان - جامعة الكويت · ماجستير التركيبات - كينجز كوليدج لندن",
-      en: "BDS, Kuwait University · MSc Prosthodontics, King's College London",
+      ar: "بكالوريوس طب الأسنان - جامعة دمشق · ماجستير التركيبات - كينجز كوليدج لندن",
+      en: "BDS, Damascus University · MSc Prosthodontics, King's College London",
     },
     languages: { ar: "العربية، الإنجليزية، الفرنسية", en: "Arabic, English, French" },
     certificates: [
@@ -274,8 +274,8 @@ export const doctors: Doctor[] = [
       { ar: "معتمدة في تصميم الابتسامة الرقمي", en: "Certified in Digital Smile Design" },
     ],
     bio: {
-      ar: "تقود د. ليلى قسم التجميل في بيرل، وتشتهر بنهج محافظ يحافظ على السن الطبيعي مع نتائج متناسقة مع ملامح الوجه.",
-      en: "Dr. Layla leads Pearl's cosmetic department and is known for a conservative approach that preserves natural tooth structure while harmonising results with facial features.",
+      ar: "تقود د. ليلى قسم التجميل في نوفا، وتشتهر بنهج محافظ يحافظ على السن الطبيعي مع نتائج متناسقة مع ملامح الوجه.",
+      en: "Dr. Layla leads Nova's cosmetic department and is known for a conservative approach that preserves natural tooth structure while harmonising results with facial features.",
     },
   },
   {
@@ -325,8 +325,8 @@ export const doctors: Doctor[] = [
     specialty: { ar: "أخصائي أسنان الأطفال", en: "Specialist Pediatric Dentist" },
     experience: { ar: "٩ سنوات خبرة", en: "9 years of experience" },
     education: {
-      ar: "بكالوريوس طب الأسنان - جامعة الكويت · ماجستير أسنان الأطفال - جامعة تورنتو",
-      en: "BDS, Kuwait University · MSc Pediatric Dentistry, University of Toronto",
+      ar: "بكالوريوس طب الأسنان - جامعة دمشق · ماجستير أسنان الأطفال - جامعة تورنتو",
+      en: "BDS, Damascus University · MSc Pediatric Dentistry, University of Toronto",
     },
     languages: { ar: "العربية، الإنجليزية", en: "Arabic, English" },
     certificates: [
@@ -334,8 +334,8 @@ export const doctors: Doctor[] = [
       { ar: "عضو الأكاديمية الأمريكية لطب أسنان الأطفال", en: "Member, American Academy of Pediatric Dentistry" },
     ],
     bio: {
-      ar: "يخصص د. عمر وقتاً لتهيئة الطفل قبل العلاج، وهو ما جعل زيارات الأطفال في بيرل تجربة محببة.",
-      en: "Dr. Omar invests time in preparing children before treatment, which is why paediatric visits at Pearl feel welcoming rather than intimidating.",
+      ar: "يخصص د. عمر وقتاً لتهيئة الطفل قبل العلاج، وهو ما جعل زيارات الأطفال في نوفا تجربة محببة.",
+      en: "Dr. Omar invests time in preparing children before treatment, which is why paediatric visits at Nova feel welcoming rather than intimidating.",
     },
   },
 ];
@@ -364,8 +364,8 @@ export const whyUs: Feature[] = [
     icon: Stethoscope,
     title: { ar: "أطباء متخصصون", en: "Experienced Specialists" },
     description: {
-      ar: "كل طبيب في بيرل يحمل شهادة تخصص دولية ويتابع تدريبه سنوياً مع أكاديميات عالمية.",
-      en: "Every Pearl clinician holds an international specialist qualification and trains annually with global academies.",
+      ar: "كل طبيب في نوفا يحمل شهادة تخصص دولية ويتابع تدريبه سنوياً مع أكاديميات عالمية.",
+      en: "Every Nova clinician holds an international specialist qualification and trains annually with global academies.",
     },
   },
   {
@@ -493,7 +493,7 @@ export type Faq = { question: L; answer: L; category: L };
 export const faqs: Faq[] = [
   {
     category: { ar: "المواعيد", en: "Appointments" },
-    question: { ar: "كيف أحجز موعداً في مركز بيرل؟", en: "How do I book an appointment at Pearl?" },
+    question: { ar: "كيف أحجز موعداً في عيادة نوفا؟", en: "How do I book an appointment at Nova?" },
     answer: {
       ar: "يمكنك الحجز عبر نموذج الحجز في الموقع أو الاتصال بنا أو عبر واتساب. يتواصل معك منسق المرضى لتأكيد الموعد خلال ساعة عمل واحدة.",
       en: "Book through the form on this site, by phone, or on WhatsApp. A patient coordinator confirms your slot within one working hour.",
@@ -503,8 +503,8 @@ export const faqs: Faq[] = [
     category: { ar: "التأمين", en: "Insurance" },
     question: { ar: "هل تقبلون التأمين الطبي؟", en: "Do you accept medical insurance?" },
     answer: {
-      ar: "نتعامل مع أغلب شركات التأمين العاملة في الكويت. يُرجى إحضار بطاقة التأمين في زيارتك الأولى للتحقق من التغطية. (شركاء التأمين المعروضون هنا هم للعرض فقط.)",
-      en: "We work with most insurers operating in Kuwait. Please bring your card to your first visit so we can verify coverage. (Insurance partners shown here are for demonstration only.)",
+      ar: "نتعامل مع أغلب شركات التأمين العاملة في سوريا. يُرجى إحضار بطاقة التأمين في زيارتك الأولى للتحقق من التغطية. (شركاء التأمين المعروضون هنا هم للعرض فقط.)",
+      en: "We work with most insurers operating in Syria. Please bring your card to your first visit so we can verify coverage. (Insurance partners shown here are for demonstration only.)",
     },
   },
   {
@@ -551,8 +551,8 @@ export const faqs: Faq[] = [
     category: { ar: "المواقف", en: "Parking" },
     question: { ar: "هل تتوفر مواقف للسيارات؟", en: "Is parking available?" },
     answer: {
-      ar: "نعم، يوجد موقف مخصص للمرضى في الطابق السفلي من مجمع بيرل، بالإضافة إلى خدمة صف السيارات مجاناً.",
-      en: "Yes — dedicated patient parking in the basement of Pearl Complex, plus complimentary valet service.",
+      ar: "نعم، يوجد موقف مخصص للمرضى في الطابق السفلي من مبنى العيادة، بالإضافة إلى خدمة صف السيارات مجاناً.",
+      en: "Yes — dedicated patient parking in the basement of the clinic building, plus complimentary valet service.",
     },
   },
 ];
@@ -599,8 +599,8 @@ export const timeline: { year: string; title: L; description: L }[] = [
     year: "2014",
     title: { ar: "افتتاح العيادة الأولى", en: "The first clinic opens" },
     description: {
-      ar: "بدأنا بغرفتي علاج في السالمية وفريق من أربعة أشخاص.",
-      en: "We began with two treatment rooms in Salmiya and a team of four.",
+      ar: "بدأنا بغرفتي علاج في دمشق وفريق من أربعة أشخاص.",
+      en: "We began with two treatment rooms in Damascus and a team of four.",
     },
   },
   {
@@ -639,10 +639,10 @@ export const timeline: { year: string; title: L; description: L }[] = [
 
 /** Demo logos — fictional insurance partners. */
 export const insurers: L[] = [
-  { ar: "الخليج للتأمين", en: "Gulf Assure" },
-  { ar: "بيرل كير", en: "Pearl Care" },
+  { ar: "الشام للتأمين", en: "Sham Assure" },
+  { ar: "نوفا كير", en: "Nova Care" },
   { ar: "الوطنية الطبية", en: "Watania Medical" },
   { ar: "مِدنِت", en: "MedNet" },
   { ar: "الأمان الصحي", en: "Aman Health" },
-  { ar: "الخليج الطبي", en: "Khaleej Medical" },
+  { ar: "الياسمين الطبي", en: "Yasmin Medical" },
 ];

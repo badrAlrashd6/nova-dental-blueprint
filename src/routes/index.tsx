@@ -20,16 +20,16 @@ import patientCare from "@/assets/patient-care.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "مركز بيرل لطب الأسنان | Pearl Dental Center — Salmiya, Kuwait" },
+      { title: "عيادة نوفا لطب الأسنان | Nova Dental Clinic — Damascus, Syria" },
       {
         name: "description",
         content:
-          "مركز بيرل لطب الأسنان في السالمية، الكويت — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
+          "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
       },
-      { property: "og:title", content: "مركز بيرل لطب الأسنان | Pearl Dental Center — Salmiya, Kuwait" },
+      { property: "og:title", content: "عيادة نوفا لطب الأسنان | Nova Dental Clinic — Damascus, Syria" },
       {
         property: "og:description",
-        content: "مركز بيرل لطب الأسنان في السالمية، الكويت — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
+        content: "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -60,8 +60,8 @@ function Home() {
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
                 {t({
-                  ar: "في مركز بيرل لطب الأسنان نقدم أحدث تقنيات علاج وتجميل الأسنان ضمن بيئة طبية حديثة وفريق متخصص يحرص على راحتك وابتسامتك.",
-                  en: "At Pearl Dental Center we combine the latest restorative and cosmetic dentistry with a modern clinical environment and a team devoted to your comfort.",
+                  ar: "في عيادة نوفا لطب الأسنان نقدم أحدث تقنيات علاج وتجميل الأسنان ضمن بيئة طبية حديثة وفريق متخصص يحرص على راحتك وابتسامتك.",
+                  en: "At Nova Dental Clinic we combine the latest restorative and cosmetic dentistry with a modern clinical environment and a team devoted to your comfort.",
                 })}
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -71,18 +71,22 @@ function Home() {
                     <Arrow className="h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-full px-7">
-                  <a href={site.phoneHref}>
-                    <Phone className="h-4 w-4 text-primary" />
-                    {t(ui.call)}
-                  </a>
-                </Button>
-                <Button asChild size="lg" variant="ghost" className="rounded-full px-7">
-                  <a href={site.whatsappHref} target="_blank" rel="noreferrer">
-                    <MessageCircle className="h-4 w-4 text-accent" />
-                    {t(ui.whatsapp)}
-                  </a>
-                </Button>
+                {site.phoneHref && (
+                  <Button asChild size="lg" variant="outline" className="rounded-full px-7">
+                    <a href={site.phoneHref}>
+                      <Phone className="h-4 w-4 text-primary" />
+                      {t(ui.call)}
+                    </a>
+                  </Button>
+                )}
+                {site.whatsappHref && (
+                  <Button asChild size="lg" variant="ghost" className="rounded-full px-7">
+                    <a href={site.whatsappHref} target="_blank" rel="noreferrer">
+                      <MessageCircle className="h-4 w-4 text-accent" />
+                      {t(ui.whatsapp)}
+                    </a>
+                  </Button>
+                )}
               </div>
               <p className="mt-8 inline-flex items-center gap-2 text-xs text-muted-foreground">
                 <ShieldCheck className="h-4 w-4 text-primary" />
@@ -94,8 +98,8 @@ function Home() {
               <Media
                 src={heroImage}
                 alt={t({
-                  ar: "استقبال مركز بيرل لطب الأسنان بإضاءة طبيعية وتصميم هادئ",
-                  en: "Pearl Dental Center reception with natural light and calm design",
+                  ar: "استقبال عيادة نوفا لطب الأسنان بإضاءة طبيعية وتصميم هادئ",
+                  en: "Nova Dental Clinic reception with natural light and calm design",
                 })}
                 priority
                 imgClassName="aspect-[4/3]"
