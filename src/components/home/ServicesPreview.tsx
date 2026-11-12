@@ -47,9 +47,7 @@ export function ServicesPreview() {
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/8 text-primary">
                   <s.icon className="h-5 w-5" aria-hidden />
                 </span>
-                <h3 className="mt-5 text-lg font-semibold text-foreground">
-                  {t(s.title)}
-                </h3>
+                <h3 className="mt-5 text-lg font-semibold text-foreground">{t(s.title)}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                   {t(s.description)}
                 </p>

@@ -59,7 +59,9 @@ function ContactPage() {
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-foreground">{t(ui.addressLabel)}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{site.address ? t(site.address) : t(site.pending)}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {site.address ? t(site.address) : t(site.pending)}
+                  </p>
                 </div>
               </li>
               <li className="flex gap-4">
@@ -68,7 +70,11 @@ function ContactPage() {
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-foreground">{t(ui.phoneLabel)}</p>
-                  <ContactValue value={site.phone} href={site.phoneHref} className="mt-1 block text-sm text-muted-foreground hover:text-foreground" />
+                  <ContactValue
+                    value={site.phone}
+                    href={site.phoneHref}
+                    className="mt-1 block text-sm text-muted-foreground hover:text-foreground"
+                  />
                 </div>
               </li>
               <li className="flex gap-4">
@@ -77,7 +83,11 @@ function ContactPage() {
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-foreground">{t(ui.emailLabel)}</p>
-                  <ContactValue value={site.email} href={site.emailHref} className="mt-1 block text-sm text-muted-foreground hover:text-foreground" />
+                  <ContactValue
+                    value={site.email}
+                    href={site.emailHref}
+                    className="mt-1 block text-sm text-muted-foreground hover:text-foreground"
+                  />
                 </div>
               </li>
               <li className="flex gap-4">
@@ -94,7 +104,7 @@ function ContactPage() {
                       </li>
                     ))}
                   </ul>
-                                  </div>
+                </div>
               </li>
             </ul>
 

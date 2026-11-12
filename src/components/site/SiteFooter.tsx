@@ -41,7 +41,10 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-3 text-sm">
               {navLinks.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="text-muted-foreground transition-colors hover:text-foreground">
+                  <Link
+                    to={l.to}
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
                     {t(l.label)}
                   </Link>
                 </li>
@@ -54,7 +57,10 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-3 text-sm">
               {featuredServices.map((s) => (
                 <li key={s.slug}>
-                  <Link to="/services" className="text-muted-foreground transition-colors hover:text-foreground">
+                  <Link
+                    to="/services"
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
                     {t(s.title)}
                   </Link>
                 </li>
@@ -71,11 +77,19 @@ export function SiteFooter() {
               </li>
               <li className="flex gap-3">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <ContactValue value={site.phone} href={site.phoneHref} className="hover:text-foreground" />
+                <ContactValue
+                  value={site.phone}
+                  href={site.phoneHref}
+                  className="hover:text-foreground"
+                />
               </li>
               <li className="flex gap-3">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <ContactValue value={site.email} href={site.emailHref} className="hover:text-foreground" />
+                <ContactValue
+                  value={site.email}
+                  href={site.emailHref}
+                  className="hover:text-foreground"
+                />
               </li>
             </ul>
 
@@ -99,6 +113,7 @@ export function SiteFooter() {
           <p>{t(ui.rights)}</p>
           <p>{t(ui.licensed)}</p>
         </div>
+        <p className="mt-4 text-xs text-muted-foreground">{t(ui.demoPeople)}</p>
       </Container>
     </footer>
   );
@@ -110,7 +125,15 @@ function FooterTitle({ children }: { children: ReactNode }) {
   );
 }
 
-function SocialLink({ href, label, children }: { href: string | null; label: string; children: ReactNode }) {
+function SocialLink({
+  href,
+  label,
+  children,
+}: {
+  href: string | null;
+  label: string;
+  children: ReactNode;
+}) {
   // Social accounts are placeholders until configured — render nothing rather than a fake link.
   if (!href) return null;
   return (

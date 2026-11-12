@@ -95,11 +95,7 @@ function AboutPage() {
       </Section>
 
       <Section className="bg-secondary/30">
-        <SectionHeading
-          align="center"
-          eyebrow={t(ui.valuesEyebrow)}
-          title={t(ui.valuesTitle)}
-        />
+        <SectionHeading align="center" eyebrow={t(ui.valuesEyebrow)} title={t(ui.valuesTitle)} />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {coreValues.map((v, i) => (
             <Reveal
@@ -127,12 +123,7 @@ function AboutPage() {
         />
         <ol className="mx-auto mt-14 max-w-3xl space-y-6 border-primary/15 ltr:border-l rtl:border-r">
           {timeline.map((m, i) => (
-            <Reveal
-              as="li"
-              key={m.year}
-              delay={i * 70}
-              className="relative ltr:pl-8 rtl:pr-8"
-            >
+            <Reveal as="li" key={m.year} delay={i * 70} className="relative ltr:pl-8 rtl:pr-8">
               <span className="absolute top-2 h-3 w-3 rounded-full bg-gradient-primary ltr:-left-[6.5px] rtl:-right-[6.5px]" />
               <p className="text-sm font-semibold text-primary" dir="ltr">
                 {m.year}

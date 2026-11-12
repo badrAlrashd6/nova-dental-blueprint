@@ -1,3 +1,40 @@
+# Development Guidelines — Nova Dental Clinic
+
+## TypeScript
+- Strict typing. Avoid `any`; prefer explicit types for exported functions and data.
+- Model bilingual copy with the `L` type (`{ ar, en }`); never hardcode visible text in one language.
+- Treat optional data as nullable (`string | null`) and handle `null` at the point of rendering.
+
+## Architecture (keep it)
+- TanStack Start + file-based routes in `src/routes`; never edit `routeTree.gen.ts`; no other router.
+- Each content route defines its own `head()` (title, description, og:*). No `og:image` on the root route.
+- UI copy lives in `src/lib/site.ts`, demo content in `src/content/clinic.ts`, contact data only in `src/config/contact.ts` — do not duplicate clinic information elsewhere.
+- Contact values are `null` until real data is provided; components must hide links for missing values and show the pending label.
+- Styling uses semantic design tokens from `src/styles.css`; no hardcoded colours in components.
+
+## Components and naming
+- `components/site` for shared/layout, `components/home` for homepage sections, `components/ui` for shadcn primitives.
+- Components: PascalCase files and names. Hooks: `useX`. Utilities/constants: camelCase.
+- Prefer small reusable components (`Media`, `Reveal`, `Section`, `SectionHeading`, `ContactValue`) over copy-paste.
+- RTL/LTR: use logical utilities (`ms-`, `ps-`, `rtl:`/`ltr:`) and flip directional icons with `isAr`.
+
+## Readability
+- Keep files focused; extract when a component exceeds one clear responsibility.
+- Comment the *why*, not the *what*. Run `bun run format` before committing.
+
+## Error handling
+- Route errors go through the root `errorComponent`; SSR failures through `src/server.ts`.
+- Never let missing optional data throw; render a fallback instead.
+
+## Security
+- No secrets in client code or `VITE_*` variables; never commit `.env` files.
+- External links use `rel="noreferrer"`; validate all form input with Zod.
+- Do not present demo data as real; never use real patient information.
+
+## Dependencies
+- Do not add a package when the existing stack covers the need; justify any new dependency.
+- Check imports and usage before removing a file or package.
+
 <!-- LOVABLE:BEGIN -->
 > [!IMPORTANT]
 > This project is connected to [Lovable](https://lovable.dev). Avoid rewriting

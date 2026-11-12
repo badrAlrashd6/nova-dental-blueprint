@@ -42,7 +42,11 @@ function DoctorsPage() {
         breadcrumb={t(crumb)}
         title={t(ui.doctorsHeroTitle)}
         description={t(ui.doctorsHeroDesc)}
-      />
+      >
+        <p className="mx-auto mt-6 max-w-xl rounded-2xl border border-primary/15 bg-card/70 px-4 py-2 text-xs text-muted-foreground">
+          {t(ui.demoPeople)}
+        </p>
+      </PageHero>
 
       <Section>
         <div className="space-y-8">

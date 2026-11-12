@@ -106,7 +106,13 @@ function BookPage() {
                     <label htmlFor="name" className="text-sm font-medium text-foreground">
                       {t(ui.fullName)}
                     </label>
-                    <input id="name" name="name" type="text" placeholder={t(ui.fullNamePh)} className={fieldClass} />
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder={t(ui.fullNamePh)}
+                      className={fieldClass}
+                    />
                     <FieldError error={errors.name} />
                   </div>
 
@@ -114,7 +120,14 @@ function BookPage() {
                     <label htmlFor="phone" className="text-sm font-medium text-foreground">
                       {t(ui.phoneField)}
                     </label>
-                    <input id="phone" name="phone" type="tel" dir="ltr" placeholder={t(ui.phonePh)} className={cn(fieldClass, "text-start")} />
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      dir="ltr"
+                      placeholder={t(ui.phonePh)}
+                      className={cn(fieldClass, "text-start")}
+                    />
                     <FieldError error={errors.phone} />
                   </div>
 
@@ -123,7 +136,14 @@ function BookPage() {
                       {t(ui.emailField)}{" "}
                       <span className="text-xs text-muted-foreground">({t(ui.optional)})</span>
                     </label>
-                    <input id="email" name="email" type="email" dir="ltr" placeholder={t(ui.emailPh)} className={cn(fieldClass, "text-start")} />
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      dir="ltr"
+                      placeholder={t(ui.emailPh)}
+                      className={cn(fieldClass, "text-start")}
+                    />
                     <FieldError error={errors.email} />
                   </div>
 
@@ -188,7 +208,13 @@ function BookPage() {
                       {t(ui.notesField)}{" "}
                       <span className="text-xs text-muted-foreground">({t(ui.optional)})</span>
                     </label>
-                    <textarea id="notes" name="notes" rows={4} placeholder={t(ui.notesPh)} className={fieldClass} />
+                    <textarea
+                      id="notes"
+                      name="notes"
+                      rows={4}
+                      placeholder={t(ui.notesPh)}
+                      className={fieldClass}
+                    />
                   </div>
                 </div>
 

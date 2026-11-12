@@ -16,13 +16,14 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { LanguageProvider } from "@/lib/i18n";
 
-
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-semibold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">الصفحة غير موجودة · Page not found</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">
+          الصفحة غير موجودة · Page not found
+        </h2>
         <p className="mt-2 text-sm text-muted-foreground">
           The page you're looking for doesn't exist or has been moved.
         </p>
@@ -88,16 +89,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
       },
-      { name: "author", content: "Nova Dental Clinic" },
+      { name: "author", content: "Nova Dental Clinic (academic project)" },
       { property: "og:site_name", content: "Nova Dental Clinic | عيادة نوفا لطب الأسنان" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "عيادة نوفا لطب الأسنان | Nova Dental Clinic — Damascus, Syria" },
-      { name: "twitter:title", content: "عيادة نوفا لطب الأسنان | Nova Dental Clinic — Damascus, Syria" },
-      { property: "og:description", content: "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص." },
-      { name: "twitter:description", content: "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9ee7e790-2121-4f72-9420-a4aa2ead3d56/id-preview-10dedb9c--1cadf062-341c-4cb1-b952-5dd3c6e3cb64.lovable.app-1785616363685.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9ee7e790-2121-4f72-9420-a4aa2ead3d56/id-preview-10dedb9c--1cadf062-341c-4cb1-b952-5dd3c6e3cb64.lovable.app-1785616363685.png" },
+      {
+        property: "og:title",
+        content: "عيادة نوفا لطب الأسنان | Nova Dental Clinic — Damascus, Syria",
+      },
+      {
+        name: "twitter:title",
+        content: "عيادة نوفا لطب الأسنان | Nova Dental Clinic — Damascus, Syria",
+      },
+      {
+        property: "og:description",
+        content:
+          "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -108,7 +121,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap",
       },
-
     ],
   }),
   shellComponent: RootShell,
@@ -148,4 +160,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-

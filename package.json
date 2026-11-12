@@ -1,5 +1,5 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "nova-dental-clinic",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -9,7 +9,11 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "dev:standalone": "vite dev --config vite.config.standalone.ts",
+    "build:standalone": "vite build --config vite.config.standalone.ts",
+    "start:standalone": "node .output/server/index.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

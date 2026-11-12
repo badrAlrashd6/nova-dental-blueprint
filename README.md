@@ -1,121 +1,93 @@
-# Kuwait Dental Elegance
+# Nova Dental Clinic — عيادة نوفا لطب الأسنان
 
-We are creating a premium dental clinic website that looks like a real clinic in Kuwait. This is not a template or a generic medical website. The final result must feel luxurious, modern, trustworthy, and conversion-focused.
+A bilingual (Arabic / English) website for a fictional dental clinic in Damascus, Syria.
 
-Project Name:
-Nova Dental Clinic
+## 1. Project overview
+The site is front-end only. It has eight pages: Home, About, Services, Doctors, Book Appointment, Testimonials, FAQ and Contact. Arabic is the default language (RTL) and English is the secondary language (LTR). The site remembers the visitor's language choice in `localStorage`.
 
-Goal:
-Design a world-class front-end only website that convinces potential patients to book an appointment. The website will later be used as a portfolio project to attract real dental clinics.
+## 2. Academic purpose
+This is an **academic demonstration project**. It is **not** a real, operating dental clinic. The project shows a production-style front-end architecture: routing, server-side rendering, bilingual content, accessibility and responsive design.
 
-Important Rules:
+## 3. Technology stack
+| Area | Technology |
+| --- | --- |
+| UI | React 19, TypeScript |
+| Framework / routing | TanStack Start v1, TanStack Router (file-based), SSR |
+| Data utilities | TanStack Query |
+| Styling | Tailwind CSS v4 (configured in `src/styles.css`), shadcn/ui (Radix primitives) |
+| Forms | React Hook Form + Zod |
+| Build | Vite, Nitro (server output) |
+| Quality | TypeScript, ESLint, Prettier |
 
-- Front-end only.
-- No backend.
-- No authentication.
-- No database.
-- No admin dashboard.
-- No fake loading screens.
-- Every section should feel realistic and premium.
+## 4. Architecture
+- **Routes** (`src/routes`): one file per page. Each page defines its own `head()` metadata. `__root.tsx` is the app shell (navigation, footer and language provider).
+- **Content layer**: all visible text is stored as `{ ar, en }` pairs.
+  - `src/lib/site.ts`: clinic identity and the UI dictionary.
+  - `src/content/clinic.ts`: services, doctors, testimonials, FAQ and timeline. **All of this is demo data.**
+  - `src/config/contact.ts`: the **single source of truth** for contact details (phone, WhatsApp, email, address, map, social, hours). Every value is currently a `null` placeholder.
+- **i18n** (`src/lib/i18n.tsx`): `LanguageProvider` and the `useLang()` hook. The hook provides `t()` for translation, plus `dir` and `isAr`.
+- **Components**: `src/components/site` holds the layout and shared components, `src/components/home` holds the homepage sections and `src/components/ui` holds the shadcn primitives.
 
-Design Style:
-
-- Ultra modern
-- Minimal luxury
-- White background
-- Primary color #2563EB
-- Accent color #06B6D4
-- Dark text
-- Soft shadows
-- Rounded corners (16-20px)
-- Premium typography
-- Large spacing
-- Smooth animations
-- Glassmorphism only where appropriate
-- Mobile-first
-- Pixel-perfect
-- Accessibility friendly
-
-Target Audience:
-
-Patients searching for:
-
-- Dental implants
-- Veneers
-- Teeth whitening
-- Orthodontics
-- Cosmetic dentistry
-- Emergency dental care
-
-Required Pages:
-
-- Home
-- About
-- Services
-- Doctors
-- Book Appointment
-- Testimonials
-- FAQ
-- Contact
-
-Navigation:
-
-Sticky transparent navbar.
-
-Include:
-
-- Logo
-- Navigation links
-- Call button
-- Book Appointment button
-
-Footer:
-
-Professional footer including:
-
-- Clinic information
-- Working hours
-- Quick links
-- Contact details
-- Social media icons
-- Copyright
-
-Technical Requirements:
-
-- React
-- TypeScript
-- Tailwind CSS
-- Responsive
-- Fast performance
-- SEO friendly structure
-- Clean reusable components
-- Well organized folder structure
-
-Do not generate placeholder Lorem Ipsum text.
-
-Generate realistic content for a premium dental clinic.
-
-At this stage only generate the project foundation, layout structure, navigation, routing, global design system, typography, color system, reusable components, and page scaffolding.
-
-Do not fully design the homepage yet.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/1cadf062-341c-4cb1-b952-5dd3c6e3cb64).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+## 5. Folder structure
 ```
+src/
+  assets/          Images used by pages
+  components/
+    home/          Homepage sections
+    site/          Layout + shared components (nav, footer, Media, Reveal, CountUp…)
+    ui/            shadcn/ui primitives
+  config/          contact.ts — contact placeholders
+  content/         Bilingual demo content
+  lib/             i18n, site dictionary, utilities, error handling
+  routes/          File-based routes (routeTree.gen.ts is generated — do not edit)
+  server.ts        SSR entry with error wrapper
+  start.ts         TanStack Start middleware
+  styles.css       Tailwind v4 theme + design tokens
+```
+
+## 6. Prerequisites
+- Node.js 20 or newer, **or** Bun 1.1 or newer
+- Git
+
+## 7. Installation
+```sh
+git clone <repository-url>
+cd nova-dental-clinic
+bun install        # or: npm install
+```
+
+## 8. Development
+```sh
+bun run dev:standalone   # independent config, http://localhost:3000
+```
+
+## 9. Production build
+```sh
+bun run build:standalone   # outputs .output/ (Nitro "node-server" preset)
+bun run start:standalone   # serves the build with Node
+```
+To deploy to another host, set `NITRO_PRESET` at build time, for example `NITRO_PRESET=vercel` or `NITRO_PRESET=netlify`.
+
+> `bun run dev` and `bun run build` use `vite.config.ts`. That file depends on the hosting platform's preset package. It is kept for now so the existing hosted preview keeps working. `vite.config.standalone.ts` uses only open-source plugins.
+
+## 10. Linting and type checks
+```sh
+bun run lint        # ESLint (+ Prettier rules)
+bun run typecheck   # tsc --noEmit
+bun run format      # Prettier
+```
+
+## 11. Environment variables
+The app needs **no** environment variables. There are no secrets, API keys or backend connections. If you add variables later:
+- Only `VITE_*` variables are exposed to the browser. Never put secrets in them.
+- Read server-only values through `process.env` inside server code.
+- Keep `.env*` files out of version control.
+
+## 12. Current limitations
+- Front-end only: no backend, no database and no authentication.
+- The booking and contact forms validate input but **do not send or store data**.
+- Contact details (phone, WhatsApp, email, address, map, social, hours) are **placeholders** until real information is provided in `src/config/contact.ts`. Buttons for missing details are hidden automatically.
+- There are no automated tests yet.
+
+## 13. Demo data disclaimer
+The doctors, qualifications, licences, statistics, patient reviews, testimonials, before/after images and insurance partners are **fictional demonstration data**. They do not represent verified real-world information or real patients. Images are illustrative.

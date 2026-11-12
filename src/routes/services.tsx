@@ -73,7 +73,10 @@ function ServicesPage() {
                   </p>
                   <ul className="mt-3 space-y-2.5">
                     {s.benefits.map((b) => (
-                      <li key={b.en} className="flex items-start gap-3 text-sm text-muted-foreground">
+                      <li
+                        key={b.en}
+                        className="flex items-start gap-3 text-sm text-muted-foreground"
+                      >
                         <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                           <Check className="h-3 w-3" aria-hidden />
                         </span>

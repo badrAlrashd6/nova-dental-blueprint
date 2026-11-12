@@ -64,13 +64,18 @@ export function SiteNav() {
       <div className="hidden border-b border-border/60 bg-foreground text-background lg:block">
         <Container className="flex h-10 items-center justify-between gap-6 text-xs">
           <div className="flex items-center gap-6">
-            <span className="rounded-full bg-background/15 px-2 py-0.5 font-medium">{t(ui.demoBadge)}</span>
+            <span className="rounded-full bg-background/15 px-2 py-0.5 font-medium">
+              {t(ui.demoBadge)}
+            </span>
             <span className="inline-flex items-center gap-2 opacity-90">
               <MapPin className="h-3.5 w-3.5" aria-hidden />
               {t(site.city)}
             </span>
             {site.phoneHref && (
-              <a href={site.phoneHref} className="inline-flex items-center gap-2 opacity-90 hover:opacity-100">
+              <a
+                href={site.phoneHref}
+                className="inline-flex items-center gap-2 opacity-90 hover:opacity-100"
+              >
                 <Phone className="h-3.5 w-3.5" aria-hidden />
                 <span dir="ltr">{site.phone}</span>
               </a>
@@ -87,7 +92,9 @@ export function SiteNav() {
       <div
         className={cn(
           "transition-all duration-300",
-          scrolled ? "border-b border-border/60 bg-background/75 shadow-soft backdrop-blur-xl" : "bg-transparent",
+          scrolled
+            ? "border-b border-border/60 bg-background/75 shadow-soft backdrop-blur-xl"
+            : "bg-transparent",
         )}
       >
         <Container className="flex h-20 items-center justify-between gap-6">
@@ -117,7 +124,11 @@ export function SiteNav() {
                 </a>
               </Button>
             )}
-            <Button asChild size="lg" className="rounded-full bg-gradient-primary shadow-soft transition-opacity hover:opacity-95">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-gradient-primary shadow-soft transition-opacity hover:opacity-95"
+            >
               <Link to="/book">{t(ui.book)}</Link>
             </Button>
           </div>
@@ -138,7 +149,9 @@ export function SiteNav() {
       <div
         className={cn(
           "fixed inset-x-0 top-20 z-40 origin-top transition-all duration-300 lg:hidden",
-          open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0",
+          open
+            ? "pointer-events-auto translate-y-0 opacity-100"
+            : "pointer-events-none -translate-y-2 opacity-0",
         )}
       >
         <div className="mx-4 rounded-3xl border border-border bg-background/95 p-6 shadow-elevated backdrop-blur-xl">

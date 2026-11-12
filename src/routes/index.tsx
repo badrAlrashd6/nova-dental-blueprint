@@ -1,5 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, MessageCircle, Phone, ShieldCheck, Sparkles, Star } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  MessageCircle,
+  Phone,
+  ShieldCheck,
+  Sparkles,
+  Star,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/site/Container";
 import { Media } from "@/components/site/Media";
@@ -26,10 +34,14 @@ export const Route = createFileRoute("/")({
         content:
           "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
       },
-      { property: "og:title", content: "عيادة نوفا لطب الأسنان | Nova Dental Clinic — Damascus, Syria" },
+      {
+        property: "og:title",
+        content: "عيادة نوفا لطب الأسنان | Nova Dental Clinic — Damascus, Syria",
+      },
       {
         property: "og:description",
-        content: "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
+        content:
+          "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -65,7 +77,11 @@ function Home() {
                 })}
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3">
-                <Button asChild size="lg" className="rounded-full bg-gradient-primary px-7 shadow-glow transition-opacity hover:opacity-95">
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full bg-gradient-primary px-7 shadow-glow transition-opacity hover:opacity-95"
+                >
                   <Link to="/book">
                     {t(ui.book)}
                     <Arrow className="h-4 w-4" />

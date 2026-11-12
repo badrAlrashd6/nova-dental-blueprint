@@ -15,13 +15,7 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div
-      className={cn(
-        "max-w-2xl",
-        align === "center" && "mx-auto text-center",
-        className,
-      )}
-    >
+    <div className={cn("max-w-2xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow ? (
         <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-xs font-medium tracking-wide text-primary">
           <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -32,9 +26,7 @@ export function SectionHeading({
         {title}
       </h2>
       {description ? (
-        <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-          {description}
-        </p>
+        <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{description}</p>
       ) : null}
     </div>
   );

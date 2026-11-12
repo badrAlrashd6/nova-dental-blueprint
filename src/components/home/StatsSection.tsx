@@ -21,9 +21,7 @@ export function StatsSection() {
                 <CountUp value={s.value} decimals={s.decimals ?? 0} />
                 {s.suffix ?? ""}
               </div>
-              <p className="mt-3 text-sm font-medium text-muted-foreground">
-                {t(s.label)}
-              </p>
+              <p className="mt-3 text-sm font-medium text-muted-foreground">{t(s.label)}</p>
             </Reveal>
           ))}
         </div>

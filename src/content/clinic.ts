@@ -71,7 +71,10 @@ export const services: Service[] = [
       { ar: "نتيجة طبيعية تدوم لسنوات", en: "Natural result that lasts for years" },
     ],
     duration: { ar: "جلسة واحدة · ٦٠-٩٠ دقيقة", en: "Single visit · 60–90 minutes" },
-    recovery: { ar: "العودة للحياة اليومية خلال ٢٤ ساعة", en: "Back to daily life within 24 hours" },
+    recovery: {
+      ar: "العودة للحياة اليومية خلال ٢٤ ساعة",
+      en: "Back to daily life within 24 hours",
+    },
     featured: true,
   },
   {
@@ -97,7 +100,10 @@ export const services: Service[] = [
     slug: "hollywood-smile",
     icon: Sparkles,
     image: hollywood,
-    alt: { ar: "دليل ألوان القشور الخزفية بجانب نموذج سن", en: "Porcelain veneer shade guide beside a tooth model" },
+    alt: {
+      ar: "دليل ألوان القشور الخزفية بجانب نموذج سن",
+      en: "Porcelain veneer shade guide beside a tooth model",
+    },
     title: { ar: "ابتسامة هوليوود", en: "Hollywood Smile" },
     description: {
       ar: "تصميم ابتسامة متكامل يجمع بين القشور الخزفية وتناسق الوجه للوصول إلى نتيجة راقية وطبيعية.",
@@ -134,7 +140,10 @@ export const services: Service[] = [
     slug: "whitening",
     icon: Brush,
     image: whitening,
-    alt: { ar: "جلسة تبييض أسنان بالضوء الأزرق", en: "Teeth whitening session with blue LED light" },
+    alt: {
+      ar: "جلسة تبييض أسنان بالضوء الأزرق",
+      en: "Teeth whitening session with blue LED light",
+    },
     title: { ar: "تبييض الأسنان", en: "Teeth Whitening" },
     description: {
       ar: "تبييض احترافي بالليزر في جلسة واحدة مع حماية كاملة للثة وحساسية أقل.",
@@ -227,7 +236,10 @@ export const services: Service[] = [
     slug: "cosmetic",
     icon: Sparkles,
     image: cosmeticImg,
-    alt: { ar: "تفاصيل تجميل الأسنان في عيادة فاخرة", en: "Cosmetic dentistry detail in a luxury clinic" },
+    alt: {
+      ar: "تفاصيل تجميل الأسنان في عيادة فاخرة",
+      en: "Cosmetic dentistry detail in a luxury clinic",
+    },
     title: { ar: "تجميل الأسنان", en: "Cosmetic Dentistry" },
     description: {
       ar: "تناسق اللثة، إعادة تشكيل الحواف، وترميم تجميلي دقيق يمنح ابتسامتك توازناً كاملاً.",
@@ -262,7 +274,10 @@ export const doctors: Doctor[] = [
     slug: "layla-al-sabah",
     image: doc1,
     name: { ar: "د. ليلى الصباح", en: "Dr. Layla Al-Sabah" },
-    specialty: { ar: "استشارية تجميل وتركيبات الأسنان", en: "Consultant, Cosmetic & Prosthodontics" },
+    specialty: {
+      ar: "استشارية تجميل وتركيبات الأسنان",
+      en: "Consultant, Cosmetic & Prosthodontics",
+    },
     experience: { ar: "١٤ سنة خبرة", en: "14 years of experience" },
     education: {
       ar: "بكالوريوس طب الأسنان - جامعة دمشق · ماجستير التركيبات - كينجز كوليدج لندن",
@@ -270,7 +285,10 @@ export const doctors: Doctor[] = [
     },
     languages: { ar: "العربية، الإنجليزية، الفرنسية", en: "Arabic, English, French" },
     certificates: [
-      { ar: "زمالة الأكاديمية الأمريكية لتجميل الأسنان", en: "Fellow, American Academy of Cosmetic Dentistry" },
+      {
+        ar: "زمالة الأكاديمية الأمريكية لتجميل الأسنان",
+        en: "Fellow, American Academy of Cosmetic Dentistry",
+      },
       { ar: "معتمدة في تصميم الابتسامة الرقمي", en: "Certified in Digital Smile Design" },
     ],
     bio: {
@@ -290,8 +308,14 @@ export const doctors: Doctor[] = [
     },
     languages: { ar: "العربية، الإنجليزية، الألمانية", en: "Arabic, English, German" },
     certificates: [
-      { ar: "دبلوم الزراعة الفورية - ITI سويسرا", en: "Immediate Loading Diploma, ITI Switzerland" },
-      { ar: "عضو الجمعية الأوروبية لزراعة الأسنان", en: "Member, European Association for Osseointegration" },
+      {
+        ar: "دبلوم الزراعة الفورية - ITI سويسرا",
+        en: "Immediate Loading Diploma, ITI Switzerland",
+      },
+      {
+        ar: "عضو الجمعية الأوروبية لزراعة الأسنان",
+        en: "Member, European Association for Osseointegration",
+      },
     ],
     bio: {
       ar: "متخصص في الزراعة الفورية والحالات المعقدة، ويعتمد على التخطيط الرقمي الكامل قبل أي تدخل جراحي.",
@@ -331,7 +355,10 @@ export const doctors: Doctor[] = [
     languages: { ar: "العربية، الإنجليزية", en: "Arabic, English" },
     certificates: [
       { ar: "معتمد في التخدير الواعي للأطفال", en: "Certified in pediatric conscious sedation" },
-      { ar: "عضو الأكاديمية الأمريكية لطب أسنان الأطفال", en: "Member, American Academy of Pediatric Dentistry" },
+      {
+        ar: "عضو الأكاديمية الأمريكية لطب أسنان الأطفال",
+        en: "Member, American Academy of Pediatric Dentistry",
+      },
     ],
     bio: {
       ar: "يخصص د. عمر وقتاً لتهيئة الطفل قبل العلاج، وهو ما جعل زيارات الأطفال في نوفا تجربة محببة.",
@@ -509,7 +536,10 @@ export const faqs: Faq[] = [
   },
   {
     category: { ar: "الطوارئ", en: "Emergency" },
-    question: { ar: "ماذا أفعل في حالة طوارئ الأسنان؟", en: "What should I do in a dental emergency?" },
+    question: {
+      ar: "ماذا أفعل في حالة طوارئ الأسنان؟",
+      en: "What should I do in a dental emergency?",
+    },
     answer: {
       ar: "اتصل بخط الطوارئ مباشرة. نستقبل حالات الألم الحاد والكسور في نفس اليوم، وخط الطوارئ يعمل على مدار الساعة.",
       en: "Call the emergency line directly. We see acute pain and fractures the same day, and the line is staffed around the clock.",

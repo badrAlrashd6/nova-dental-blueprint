@@ -56,6 +56,15 @@ export const ui = {
 
   // Generic labels
   demo: { ar: "محتوى تجريبي لأغراض العرض", en: "Demo content for presentation purposes" } as L,
+  demoBadge: { ar: "مشروع أكاديمي تجريبي", en: "Academic demo project" } as L,
+  demoPeople: {
+    ar: "الأطباء والمؤهلات والتقييمات والأرقام المعروضة بيانات تجريبية وليست معلومات حقيقية موثّقة.",
+    en: "Doctors, qualifications, reviews and figures shown are demonstration data, not verified real-world information.",
+  } as L,
+  contactPendingNote: {
+    ar: "سيتم إضافة أرقام الهاتف وواتساب قريباً. يمكنك استخدام نموذج الحجز في الوقت الحالي.",
+    en: "Phone and WhatsApp details will be added soon. Please use the booking form for now.",
+  } as L,
   demoLogos: { ar: "شعارات تجريبية", en: "Demo logos" } as L,
   quickLinks: { ar: "روابط سريعة", en: "Quick Links" } as L,
   workingHours: { ar: "ساعات العمل", en: "Working Hours" } as L,
@@ -155,7 +164,10 @@ export const ui = {
 
   // About page
   aboutHeroEyebrow: { ar: "من نحن", en: "About Us" } as L,
-  aboutHeroTitle: { ar: "طب أسنان بمعايير عالمية في قلب دمشق", en: "World-class dentistry in the heart of Damascus" } as L,
+  aboutHeroTitle: {
+    ar: "طب أسنان بمعايير عالمية في قلب دمشق",
+    en: "World-class dentistry in the heart of Damascus",
+  } as L,
   aboutHeroDesc: {
     ar: "تأسس عيادة نوفا ليجمع بين الدقة الطبية والتقنيات الرقمية وتجربة إنسانية هادئة لكل مريض.",
     en: "Nova was founded to bring together clinical precision, digital technology and a calm, human experience for every patient.",
@@ -174,7 +186,10 @@ export const ui = {
   timelineEyebrow: { ar: "مسيرتنا", en: "Milestones" } as L,
   timelineTitle: { ar: "محطات في طريق نوفا", en: "Milestones along the way" } as L,
   facilityEyebrow: { ar: "المركز", en: "The Centre" } as L,
-  facilityTitle: { ar: "بيئة علاجية مصممة بعناية", en: "A carefully designed clinical environment" } as L,
+  facilityTitle: {
+    ar: "بيئة علاجية مصممة بعناية",
+    en: "A carefully designed clinical environment",
+  } as L,
   facilityDesc: {
     ar: "من غرف العلاج الخاصة إلى قسم التصوير الرقمي، كل مساحة في نوفا مصممة لتقليل التوتر ورفع دقة العلاج.",
     en: "From private treatment suites to the digital imaging department, every space at Nova is designed to reduce anxiety and raise clinical precision.",
@@ -186,7 +201,10 @@ export const ui = {
 
   // Services page
   servicesHeroEyebrow: { ar: "العلاجات", en: "Treatments" } as L,
-  servicesHeroTitle: { ar: "خدماتنا العلاجية والتجميلية", en: "Our clinical and cosmetic services" } as L,
+  servicesHeroTitle: {
+    ar: "خدماتنا العلاجية والتجميلية",
+    en: "Our clinical and cosmetic services",
+  } as L,
   servicesHeroDesc: {
     ar: "عشر خدمات متخصصة تغطي الوقاية والعلاج والتجميل، ينفذها فريق من الاستشاريين داخل نوفا.",
     en: "Ten specialist services spanning prevention, treatment and aesthetics, delivered by Nova's consultant team.",
@@ -211,7 +229,10 @@ export const ui = {
 
   // FAQ page
   faqHeroEyebrow: { ar: "الأسئلة الشائعة", en: "FAQ" } as L,
-  faqHeroTitle: { ar: "إجابات لأكثر الأسئلة تكراراً", en: "Answers to the questions we hear most" } as L,
+  faqHeroTitle: {
+    ar: "إجابات لأكثر الأسئلة تكراراً",
+    en: "Answers to the questions we hear most",
+  } as L,
   faqHeroDesc: {
     ar: "كل ما تحتاج معرفته قبل زيارتك الأولى: المواعيد، التأمين، الألم، الدفع وساعات العمل.",
     en: "Everything you need before your first visit: appointments, insurance, comfort, payment and clinic hours.",
@@ -224,7 +245,10 @@ export const ui = {
 
   // Contact page
   contactHeroEyebrow: { ar: "تواصل معنا", en: "Contact" } as L,
-  contactHeroTitle: { ar: "تواصل مع عيادة نوفا في دمشق", en: "Get in touch with Nova in Damascus" } as L,
+  contactHeroTitle: {
+    ar: "تواصل مع عيادة نوفا في دمشق",
+    en: "Get in touch with Nova in Damascus",
+  } as L,
   contactHeroDesc: {
     ar: "مواقف مخصصة، خدمة صف السيارات، وغرف استشارة خاصة لاستقبال هادئ لكل مريض.",
     en: "Dedicated parking, valet service and private consultation rooms for a calm welcome.",
@@ -275,9 +299,18 @@ export const ui = {
   } as L,
   bookAnother: { ar: "حجز موعد آخر", en: "Book another appointment" } as L,
   bookAside1: { ar: "تأكيد خلال ساعة عمل واحدة", en: "Confirmation within one working hour" } as L,
-  bookAside2: { ar: "استشارة أولى شاملة مع أشعة رقمية", en: "Comprehensive first consultation with digital X-rays" } as L,
-  bookAside3: { ar: "خطة علاج مكتوبة بتكلفة واضحة", en: "A written treatment plan with clear pricing" } as L,
-  bookAside4: { ar: "إمكانية التعديل أو الإلغاء بسهولة", en: "Easy rescheduling or cancellation" } as L,
+  bookAside2: {
+    ar: "استشارة أولى شاملة مع أشعة رقمية",
+    en: "Comprehensive first consultation with digital X-rays",
+  } as L,
+  bookAside3: {
+    ar: "خطة علاج مكتوبة بتكلفة واضحة",
+    en: "A written treatment plan with clear pricing",
+  } as L,
+  bookAside4: {
+    ar: "إمكانية التعديل أو الإلغاء بسهولة",
+    en: "Easy rescheduling or cancellation",
+  } as L,
   prefer: { ar: "تفضل الحجز مباشرة؟", en: "Prefer to book directly?" } as L,
 };
 
@@ -291,4 +324,3 @@ export const timeSlots: L[] = [
   { ar: "٦:٠٠ مساءً", en: "6:00 PM" },
   { ar: "٨:٠٠ مساءً", en: "8:00 PM" },
 ];
-
