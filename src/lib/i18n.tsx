@@ -71,10 +71,18 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }
 
+/** Fallback used if a component renders outside the provider (e.g. during a hot reload). */
+const fallbackCtx: Ctx = {
+  lang: "ar",
+  dir: "rtl",
+  isAr: true,
+  setLang: () => {},
+  toggle: () => {},
+  t: (pair: L) => pair.ar,
+};
+
 export function useLang() {
-  const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error("useLang must be used inside LanguageProvider");
-  return ctx;
+  return useContext(LanguageContext) ?? fallbackCtx;
 }
 
 /** Format a number with Arabic-Indic or Latin digits depending on language. */
