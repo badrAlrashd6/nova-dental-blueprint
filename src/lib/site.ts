@@ -55,17 +55,27 @@ export const ui = {
   sending: { ar: "جاري الإرسال...", en: "Sending..." } as L,
 
   // Generic labels
+  demoClaims: { ar: "محتوى خيالي للعرض الأكاديمي فقط؛ الشخصيات والمؤهلات والسنوات والمرافق والإحصاءات والمراجعات والنتائج ليست حقائق موثقة. الصور توضيحية وليست لمرضى حقيقيين، ولا تُقدم خدمات علاجية.", en: "Fictional academic content only: people, credentials, years, facilities, statistics, reviews and outcomes are not verified facts. Images are illustrative, not real patients; no treatment services are offered." } as L,
+  demoItem: { ar: "بيانات خيالية للعرض فقط", en: "Fictional demonstration data" } as L,
+  demoImage: { ar: "صورة توضيحية — ليست لعيادة أو مريض حقيقي", en: "Illustrative image — not a real clinic or patient" } as L,
+  demoService: { ar: "مثال خيالي؛ الأوقات والنتائج ليست نصيحة طبية أو ضماناً للعلاج", en: "Fictional example; timings and outcomes are not medical advice or treatment guarantees" } as L,
+  heroTitle: { ar: "عيادة نوفا لطب الأسنان", en: "Nova Dental Clinic" } as L,
+  heroDesc: { ar: "تصور أكاديمي لعيادة أسنان خيالية في دمشق، سوريا؛ لا يمثل عيادة عاملة أو رعاية طبية فعلية.", en: "An academic concept for a fictional dental clinic in Damascus, Syria; not an operating clinic or a real healthcare service." } as L,
+  demoRating: { ar: "٤.٩ من ٥ — تقييم خيالي", en: "4.9/5 — fictional rating" } as L,
+  errorTitle: { ar: "تعذر تحميل الصفحة", en: "This page didn't load" } as L,
+  errorDesc: { ar: "حدث خطأ. يمكنك المحاولة مجدداً أو العودة للرئيسية.", en: "Something went wrong. Try again or return home." } as L,
+  retry: { ar: "حاول مجدداً", en: "Try again" } as L,
+  notFound: { ar: "الصفحة غير موجودة", en: "Page not found" } as L,
+  notFoundDesc: { ar: "الصفحة المطلوبة غير موجودة أو تم نقلها.", en: "The requested page does not exist or has moved." } as L,
+  primaryNav: { ar: "التنقل الرئيسي", en: "Primary navigation" } as L,
+  mobileNav: { ar: "التنقل على الهاتف", en: "Mobile navigation" } as L,
+  breadcrumb: { ar: "مسار التنقل", en: "Breadcrumb" } as L,
+
   demo: { ar: "محتوى تجريبي لأغراض العرض", en: "Demo content for presentation purposes" } as L,
   demoBadge: { ar: "مشروع أكاديمي تجريبي", en: "Academic demo project" } as L,
-  demoPeople: {
-    ar: "الأطباء والمؤهلات والتقييمات والأرقام المعروضة بيانات تجريبية وليست معلومات حقيقية موثّقة.",
-    en: "Doctors, qualifications, reviews and figures shown are demonstration data, not verified real-world information.",
-  } as L,
-  contactPendingNote: {
-    ar: "سيتم إضافة أرقام الهاتف وواتساب قريباً. يمكنك استخدام نموذج الحجز في الوقت الحالي.",
-    en: "Phone and WhatsApp details will be added soon. Please use the booking form for now.",
-  } as L,
-  demoLogos: { ar: "شعارات تجريبية", en: "Demo logos" } as L,
+  demoPeople: { ar: "الشخصيات والمؤهلات والمراجعات والإحصاءات خيالية. الصور توضيحية وليست لمرضى حقيقيين.", en: "People, credentials, reviews and statistics are fictional. Images are illustrative, not real patients." } as L,
+  contactPendingNote: { ar: "بيانات التواصل غير متاحة. النموذج تجريبي فقط ولا يرسل أي طلب.", en: "Contact details are unavailable. The form is a demonstration and does not send a request." } as L,
+  demoLogos: { ar: "أسماء تجريبية فقط — لا شراكات فعلية", en: "Demo names only — no real partnerships" } as L,
   quickLinks: { ar: "روابط سريعة", en: "Quick Links" } as L,
   workingHours: { ar: "ساعات العمل", en: "Working Hours" } as L,
   contactUs: { ar: "تواصل معنا", en: "Contact" } as L,
@@ -101,86 +111,47 @@ export const ui = {
     ar: "ثقة تُبنى مع كل ابتسامة",
     en: "Trust built one smile at a time",
   } as L,
-  homeStatsDesc: {
-    ar: "أرقام تعكس ما بناه فريق نوفا خلال أكثر من عشر سنوات من العمل في دمشق.",
-    en: "Figures that reflect what the Nova team has built over more than a decade in Damascus.",
-  } as L,
+  homeStatsDesc: { ar: "أرقام خيالية للعرض فقط وليست إحصاءات عيادة حقيقية.", en: "Fictional demonstration figures, not real clinic statistics." } as L,
   whyEyebrow: { ar: "لماذا نوفا", en: "Why Nova" } as L,
-  whyTitle: {
-    ar: "لماذا يختارنا المرضى في سوريا",
-    en: "Why patients across Syria choose us",
-  } as L,
+  whyTitle: { ar: "تصور خيالي للرعاية", en: "A fictional care concept" } as L,
   whyDesc: {
     ar: "تفاصيل صغيرة كثيرة تصنع الفرق بين زيارة أسنان عادية وتجربة علاجية مريحة.",
     en: "Many small details separate an ordinary dental visit from a genuinely comfortable one.",
   } as L,
   servicesEyebrow: { ar: "خدماتنا", en: "Our Services" } as L,
   servicesTitle: { ar: "علاجات تغطي كل احتياجات ابتسامتك", en: "Treatments for every smile" } as L,
-  servicesDesc: {
-    ar: "من الزراعة الرقمية إلى القشور الخزفية المصنوعة يدوياً، كل علاج يُخطط رقمياً وينفذه أخصائي.",
-    en: "From digitally guided implants to hand-layered veneers, every treatment is planned digitally and delivered by a specialist.",
-  } as L,
+  servicesDesc: { ar: "أمثلة خيالية لعلاجات الأسنان للعرض الأكاديمي، وليست خدمات متاحة فعلياً.", en: "Fictional dental treatment examples for the academic demonstration, not available services." } as L,
   doctorsEyebrow: { ar: "الفريق الطبي", en: "The Team" } as L,
-  doctorsTitle: { ar: "أطباء تثق بهم", en: "Specialists you can trust" } as L,
-  doctorsDesc: {
-    ar: "كل طبيب في نوفا يحمل شهادة تخصص دولية ويواصل تدريبه سنوياً مع أكاديميات عالمية.",
-    en: "Every Nova clinician holds an international specialist qualification and trains annually with global academies.",
-  } as L,
+  doctorsTitle: { ar: "شخصيات طبية خيالية", en: "Fictional clinician profiles" } as L,
+  doctorsDesc: { ar: "شخصيات ومؤهلات وخبرات خيالية للعرض الأكاديمي فقط.", en: "Fictional people, credentials and experience for the academic demonstration only." } as L,
   baEyebrow: { ar: "قبل وبعد", en: "Before & After" } as L,
-  baTitle: { ar: "نتائج حقيقية بمعايير طبيعية", en: "Real results, natural standards" } as L,
-  baDesc: {
-    ar: "حرّك الفاصل لمشاهدة الفرق في حالة تصميم ابتسامة كاملة داخل عيادة نوفا. (صور توضيحية)",
-    en: "Drag the divider to see the difference on a complete smile design at Nova. (Illustrative imagery)",
-  } as L,
+  baTitle: { ar: "مقارنة ابتسامة توضيحية", en: "Illustrative smile comparison" } as L,
+  baDesc: { ar: "صور توضيحية فقط وليست صور مريض أو نتيجة علاج حقيقية. لا تمثل ضماناً للنتائج.", en: "Illustrative images only, not a real patient or treatment outcome. Results are not guaranteed." } as L,
   testiEyebrow: { ar: "آراء المرضى", en: "Patient Stories" } as L,
-  testiTitle: { ar: "ما يقوله مرضانا", en: "What our patients say" } as L,
-  testiDesc: {
-    ar: "تجارب حقيقية من كرسي نوفا: زراعة، تقويم، تبييض وتصميم ابتسامة.",
-    en: "Real experiences from the Nova chair: implants, orthodontics, whitening and smile design.",
-  } as L,
+  testiTitle: { ar: "قصص مرضى خيالية", en: "Fictional patient stories" } as L,
+  testiDesc: { ar: "قصص وتقييمات مكتوبة للعرض الأكاديمي وليست شهادات مرضى حقيقيين.", en: "Stories and ratings written for the academic demonstration, not real patient testimonials." } as L,
   insurersEyebrow: { ar: "شركاء التأمين", en: "Insurance Partners" } as L,
-  insurersTitle: { ar: "نتعامل مع أبرز شركات التأمين", en: "We work with leading insurers" } as L,
-  insurersDesc: {
-    ar: "أحضر بطاقة التأمين في زيارتك الأولى وسنتحقق من التغطية نيابةً عنك.",
-    en: "Bring your insurance card to your first visit and we'll verify coverage for you.",
-  } as L,
+  insurersTitle: { ar: "أسماء تأمين تجريبية", en: "Demo insurance names" } as L,
+  insurersDesc: { ar: "الأسماء للعرض فقط؛ لا توجد شراكات أو تغطية تأمين فعلية.", en: "Names are illustrative only; no insurance partnerships or coverage are offered." } as L,
   ctaTitle: {
     ar: "جاهز لابتسامة تستحقها؟",
     en: "Ready for the smile you deserve?",
   } as L,
-  ctaDesc: {
-    ar: "احجز استشارتك اليوم، ويتواصل معك منسق المرضى لتأكيد الموعد خلال ساعة عمل واحدة.",
-    en: "Book your consultation today and a patient coordinator will confirm within one working hour.",
-  } as L,
+  ctaDesc: { ar: "نموذج حجز أكاديمي فقط؛ لا تُرسل البيانات ولا تُحفظ ولا يُؤكد أي موعد.", en: "Academic booking demonstration only; data is not sent or stored and no appointment is confirmed." } as L,
   experienceEyebrow: { ar: "تجربة المريض", en: "Patient Experience" } as L,
   experienceTitle: {
     ar: "زيارة تشبه الضيافة أكثر من العيادة",
     en: "A visit that feels more like hospitality",
   } as L,
-  experienceDesc: {
-    ar: "غرف خاصة، منسق مرضى يرافقك، ومواعيد تحترم وقتك من لحظة الوصول حتى المغادرة.",
-    en: "Private suites, a coordinator by your side, and appointments that respect your time from arrival to departure.",
-  } as L,
+  experienceDesc: { ar: "غرف وخدمات متخيلة ضمن قصة المشروع، وليست مرافق أو خدمات متاحة فعلياً.", en: "Imagined rooms and services within the project story, not actual available facilities or services." } as L,
 
   // About page
   aboutHeroEyebrow: { ar: "من نحن", en: "About Us" } as L,
-  aboutHeroTitle: {
-    ar: "طب أسنان بمعايير عالمية في قلب دمشق",
-    en: "World-class dentistry in the heart of Damascus",
-  } as L,
-  aboutHeroDesc: {
-    ar: "تأسس عيادة نوفا ليجمع بين الدقة الطبية والتقنيات الرقمية وتجربة إنسانية هادئة لكل مريض.",
-    en: "Nova was founded to bring together clinical precision, digital technology and a calm, human experience for every patient.",
-  } as L,
+  aboutHeroTitle: { ar: "تصور عيادة نوفا في دمشق", en: "The Nova clinic concept in Damascus" } as L,
+  aboutHeroDesc: { ar: "قصة ومرافق خيالية لعيادة نوفا، لأغراض العرض الأكاديمي فقط.", en: "A fictional story and facilities for Nova, for academic demonstration only." } as L,
   storyTitle: { ar: "قصتنا", en: "Our Story" } as L,
-  storyP1: {
-    ar: "بدأنا عام ٢٠١٤ بغرفتي علاج وفريق صغير يؤمن بأن زيارة الأسنان يمكن أن تكون تجربة مريحة. اليوم نعمل في مقر بمساحة ١٢٠٠ متر مربع بثمانِ غرف علاج خاصة ومختبر رقمي داخلي.",
-    en: "We began in 2014 with two treatment rooms and a small team convinced that a dental visit could feel calm. Today we work from a 1,200 m² flagship with eight private suites and an in-house digital lab.",
-  } as L,
-  storyP2: {
-    ar: "ما لم يتغير هو المبدأ: تشخيص أمين، خطة علاج مكتوبة، وتكلفة واضحة قبل أي إجراء.",
-    en: "What hasn't changed is the principle: an honest diagnosis, a written treatment plan and a clear cost before any procedure.",
-  } as L,
+  storyP1: { ar: "في القصة الخيالية بدأ المشروع عام ٢٠١٤ بغرفتي علاج ثم توسع إلى مساحة ١٢٠٠ متر مربع وثماني غرف. السنوات والمساحات والمرافق مختلقة للعرض فقط.", en: "In the fictional story, the clinic began in 2014 with two rooms and expanded to 1,200 m² with eight suites. Dates, dimensions and facilities are invented demonstration data." } as L,
+  storyP2: { ar: "تعرض القصة قيماً تصورية مثل التشخيص الأمين وخطة العلاج الواضحة، ولا تمثل التزامات عيادة فعلية.", en: "The story illustrates values such as honest diagnosis and clear treatment planning, not commitments from an actual clinic." } as L,
   valuesEyebrow: { ar: "قيمنا", en: "Our Values" } as L,
   valuesTitle: { ar: "ما نلتزم به مع كل مريض", en: "What we commit to with every patient" } as L,
   timelineEyebrow: { ar: "مسيرتنا", en: "Milestones" } as L,
@@ -190,10 +161,7 @@ export const ui = {
     ar: "بيئة علاجية مصممة بعناية",
     en: "A carefully designed clinical environment",
   } as L,
-  facilityDesc: {
-    ar: "من غرف العلاج الخاصة إلى قسم التصوير الرقمي، كل مساحة في نوفا مصممة لتقليل التوتر ورفع دقة العلاج.",
-    en: "From private treatment suites to the digital imaging department, every space at Nova is designed to reduce anxiety and raise clinical precision.",
-  } as L,
+  facilityDesc: { ar: "صور توضيحية لمرافق متخيلة، وليست توثيقاً لمقر عيادة حقيقية.", en: "Illustrative images of imagined facilities, not documentation of an actual clinic." } as L,
   facilitySuite: { ar: "غرفة علاج خاصة", en: "Private treatment suite" } as L,
   facilityTech: { ar: "قسم التصوير الرقمي", en: "Digital imaging department" } as L,
   facilityTeam: { ar: "الفريق الطبي والتمريضي", en: "Clinical and nursing team" } as L,
@@ -205,27 +173,18 @@ export const ui = {
     ar: "خدماتنا العلاجية والتجميلية",
     en: "Our clinical and cosmetic services",
   } as L,
-  servicesHeroDesc: {
-    ar: "عشر خدمات متخصصة تغطي الوقاية والعلاج والتجميل، ينفذها فريق من الاستشاريين داخل نوفا.",
-    en: "Ten specialist services spanning prevention, treatment and aesthetics, delivered by Nova's consultant team.",
-  } as L,
+  servicesHeroDesc: { ar: "عشر خدمات في تصور خيالي؛ الأوقات والنتائج أمثلة وليست نصيحة طبية.", en: "Ten services in a fictional concept; timings and outcomes are examples, not medical advice." } as L,
   benefitsLabel: { ar: "أبرز المزايا", en: "Key benefits" } as L,
 
   // Doctors page
   doctorsHeroEyebrow: { ar: "الأطباء", en: "Doctors" } as L,
   doctorsHeroTitle: { ar: "الفريق الطبي في نوفا", en: "The Nova clinical team" } as L,
-  doctorsHeroDesc: {
-    ar: "أربعة استشاريين وأخصائيين يجمعون بين التدريب الأوروبي والأمريكي والخبرة الطويلة في سوريا.",
-    en: "Four consultants and specialists combining European and North American training with long experience in Syria.",
-  } as L,
+  doctorsHeroDesc: { ar: "أربعة ملفات لشخصيات طبية خيالية؛ المؤهلات والخبرة ليست حقائق موثقة.", en: "Four fictional clinician profiles; qualifications and experience are not verified facts." } as L,
 
   // Testimonials page
   testiHeroEyebrow: { ar: "تجارب المرضى", en: "Patient Stories" } as L,
-  testiHeroTitle: { ar: "قصص ابتسامة من مرضانا", en: "Smile stories from our patients" } as L,
-  testiHeroDesc: {
-    ar: "مجموعة من تجارب المرضى في نوفا، من الزراعة والتقويم إلى التبييض وتصميم الابتسامة.",
-    en: "A collection of patient experiences at Nova — from implants and orthodontics to whitening and smile design.",
-  } as L,
+  testiHeroTitle: { ar: "قصص ابتسامة خيالية", en: "Fictional smile stories" } as L,
+  testiHeroDesc: { ar: "أسماء وصور وقصص وتقييمات توضيحية فقط، وليست مراجعات مرضى حقيقيين.", en: "Illustrative names, images, stories and ratings only, not real patient reviews." } as L,
 
   // FAQ page
   faqHeroEyebrow: { ar: "الأسئلة الشائعة", en: "FAQ" } as L,
@@ -233,15 +192,9 @@ export const ui = {
     ar: "إجابات لأكثر الأسئلة تكراراً",
     en: "Answers to the questions we hear most",
   } as L,
-  faqHeroDesc: {
-    ar: "كل ما تحتاج معرفته قبل زيارتك الأولى: المواعيد، التأمين، الألم، الدفع وساعات العمل.",
-    en: "Everything you need before your first visit: appointments, insurance, comfort, payment and clinic hours.",
-  } as L,
+  faqHeroDesc: { ar: "إجابات توضيحية عن مشروع خيالي، وليست معلومات عن عيادة عاملة أو نصيحة طبية.", en: "Illustrative answers about a fictional project, not operating-clinic information or medical advice." } as L,
   faqStillQuestion: { ar: "لديك سؤال آخر؟", en: "Still have a question?" } as L,
-  faqStillDesc: {
-    ar: "فريق خدمة المرضى متاح للرد عليك عبر الهاتف أو واتساب خلال ساعات العمل.",
-    en: "Our patient services team is available by phone or WhatsApp during clinic hours.",
-  } as L,
+  faqStillDesc: { ar: "هذا مشروع أكاديمي دون خدمة تواصل أو رعاية فعلية. بيانات التواصل غير متاحة.", en: "This academic project provides no real contact or care service. Contact details are unavailable." } as L,
 
   // Contact page
   contactHeroEyebrow: { ar: "تواصل معنا", en: "Contact" } as L,
@@ -249,10 +202,7 @@ export const ui = {
     ar: "تواصل مع عيادة نوفا في دمشق",
     en: "Get in touch with Nova in Damascus",
   } as L,
-  contactHeroDesc: {
-    ar: "مواقف مخصصة، خدمة صف السيارات، وغرف استشارة خاصة لاستقبال هادئ لكل مريض.",
-    en: "Dedicated parking, valet service and private consultation rooms for a calm welcome.",
-  } as L,
+  contactHeroDesc: { ar: "عيادة خيالية في دمشق، سوريا. بيانات التواصل وساعات العمل غير متاحة، والصور توضيحية فقط.", en: "A fictional clinic in Damascus, Syria. Contact details and hours are unavailable; images are illustrative only." } as L,
   contactInfo: { ar: "معلومات التواصل", en: "Contact information" } as L,
   addressLabel: { ar: "العنوان", en: "Address" } as L,
   phoneLabel: { ar: "الهاتف", en: "Phone" } as L,
@@ -263,15 +213,12 @@ export const ui = {
   // Booking form
   bookHeroEyebrow: { ar: "حجز موعد", en: "Booking" } as L,
   bookHeroTitle: { ar: "احجز موعدك في عيادة نوفا", en: "Book your appointment at Nova" } as L,
-  bookHeroDesc: {
-    ar: "املأ النموذج وسيتواصل معك منسق المرضى لتأكيد الموعد خلال ساعة عمل واحدة.",
-    en: "Fill in the form and a patient coordinator will confirm your slot within one working hour.",
-  } as L,
+  bookHeroDesc: { ar: "جرّب النموذج ببيانات خيالية فقط. لا يتم إرسال أو حفظ البيانات أو إنشاء موعد.", en: "Try the form with fictional details only. Nothing is sent or stored and no appointment is created." } as L,
   formTitle: { ar: "بيانات الحجز", en: "Appointment details" } as L,
   fullName: { ar: "الاسم الكامل", en: "Full name" } as L,
   fullNamePh: { ar: "مثال: نورة العنزي", en: "e.g. Noura Al-Anzi" } as L,
   phoneField: { ar: "رقم الهاتف", en: "Phone number" } as L,
-  phonePh: { ar: "٩٦٥ ٠٠٠٠ ٠٠٠٠+", en: "+965 0000 0000" } as L,
+  phonePh: { ar: "أدخل رقم الهاتف للتجربة", en: "Enter a phone number for the demo" } as L,
   emailField: { ar: "البريد الإلكتروني", en: "Email address" } as L,
   emailPh: { ar: "name@example.com", en: "name@example.com" } as L,
   serviceField: { ar: "الخدمة المطلوبة", en: "Treatment" } as L,
@@ -292,29 +239,17 @@ export const ui = {
   errService: { ar: "يرجى اختيار الخدمة", en: "Please select a treatment" } as L,
   errDate: { ar: "يرجى اختيار التاريخ", en: "Please choose a date" } as L,
   errTime: { ar: "يرجى اختيار الوقت", en: "Please choose a time" } as L,
-  successTitle: { ar: "تم استلام طلبك", en: "Your request has been received" } as L,
-  successDesc: {
-    ar: "شكراً لك. سيتواصل معك منسق المرضى خلال ساعة عمل واحدة لتأكيد الموعد. (نموذج تجريبي — لا يتم إرسال بيانات فعلية.)",
-    en: "Thank you. A patient coordinator will contact you within one working hour to confirm. (Demo form — no data is actually sent.)",
-  } as L,
+  successTitle: { ar: "اكتملت تجربة النموذج", en: "Form demonstration complete" } as L,
+  successDesc: { ar: "تم التحقق من البيانات في هذه الصفحة فقط. لم تُرسل أو تُحفظ ولا يوجد موعد أو متابعة فعلية.", en: "Details were validated on this page only. Nothing was sent or stored; there is no appointment or follow-up." } as L,
   bookAnother: { ar: "حجز موعد آخر", en: "Book another appointment" } as L,
-  bookAside1: { ar: "تأكيد خلال ساعة عمل واحدة", en: "Confirmation within one working hour" } as L,
-  bookAside2: {
-    ar: "استشارة أولى شاملة مع أشعة رقمية",
-    en: "Comprehensive first consultation with digital X-rays",
-  } as L,
-  bookAside3: {
-    ar: "خطة علاج مكتوبة بتكلفة واضحة",
-    en: "A written treatment plan with clear pricing",
-  } as L,
-  bookAside4: {
-    ar: "إمكانية التعديل أو الإلغاء بسهولة",
-    en: "Easy rescheduling or cancellation",
-  } as L,
+  bookAside1: { ar: "نموذج تجريبي دون تأكيد موعد", en: "Demo form; no appointment confirmation" } as L,
+  bookAside2: { ar: "استخدم بيانات خيالية فقط", en: "Use fictional details only" } as L,
+  bookAside3: { ar: "لا تُرسل البيانات أو تُحفظ", en: "Nothing is sent or stored" } as L,
+  bookAside4: { ar: "لا توجد خدمة علاجية فعلية", en: "No real treatment service is offered" } as L,
   prefer: { ar: "تفضل الحجز مباشرة؟", en: "Prefer to book directly?" } as L,
 };
 
-/** Time slots offered in the booking form. */
+/** Fictional options for the demo form, not opening hours or real availability. */
 export const timeSlots: L[] = [
   { ar: "٩:٠٠ صباحاً", en: "9:00 AM" },
   { ar: "١٠:٣٠ صباحاً", en: "10:30 AM" },

@@ -18,10 +18,7 @@ export function SiteFooter() {
           <div className="lg:col-span-4">
             <Logo />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              {t({
-                ar: "مركز أسنان متخصص في قلب دمشق يجمع بين الدقة الطبية وتجربة مريحة وهادئة لكل مريض.",
-                en: "A specialist dental centre in the heart of Damascus, pairing clinical precision with a calm, considered patient experience.",
-              })}
+              {t(ui.heroDesc)}
             </p>
             <div className="mt-6 flex items-center gap-3">
               <SocialLink href={site.social.instagram} label="Instagram">
@@ -113,7 +110,7 @@ export function SiteFooter() {
           <p>{t(ui.rights)}</p>
           <p>{t(ui.licensed)}</p>
         </div>
-        <p className="mt-4 text-xs text-muted-foreground">{t(ui.demoPeople)}</p>
+        <p className="mt-4 text-xs text-muted-foreground">{t(ui.demoClaims)}</p>
       </Container>
     </footer>
   );

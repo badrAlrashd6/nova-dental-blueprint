@@ -51,6 +51,7 @@ export function ServicesPreview() {
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                   {t(s.description)}
                 </p>
+                <p className="mt-3 text-xs text-muted-foreground">{t(ui.demoService)}</p>
                 <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary">
                   {t(ui.learnMore)}
                   <Arrow className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />

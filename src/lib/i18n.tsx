@@ -90,7 +90,7 @@ export function useNumber() {
   const { lang } = useLang();
   return useCallback(
     (n: number, opts?: Intl.NumberFormatOptions) =>
-      new Intl.NumberFormat(lang === "ar" ? "ar-KW" : "en-US", opts).format(n),
+      new Intl.NumberFormat(lang === "ar" ? "ar-SY-u-nu-arab" : "en-US", opts).format(n),
     [lang],
   );
 }

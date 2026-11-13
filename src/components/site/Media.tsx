@@ -1,3 +1,5 @@
+import { useLang } from "@/lib/i18n";
+import { ui } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -24,6 +26,7 @@ export function Media({
   priority?: boolean;
   overlay?: boolean;
 }) {
+  const { t } = useLang();
   return (
     <div
       className={cn(
@@ -43,6 +46,9 @@ export function Media({
           imgClassName,
         )}
       />
+      <span className="absolute inset-x-0 bottom-0 z-10 bg-background/90 px-3 py-2 text-center text-xs text-muted-foreground">
+        {t(ui.demoImage)}
+      </span>
       {overlay ? (
         <div
           aria-hidden

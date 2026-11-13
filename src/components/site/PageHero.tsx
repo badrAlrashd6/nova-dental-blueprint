@@ -40,7 +40,7 @@ export function PageHero({
         <div className="mx-auto max-w-3xl text-center">
           {breadcrumb ? (
             <nav
-              aria-label="Breadcrumb"
+              aria-label={t(ui.breadcrumb)}
               className="mb-6 flex items-center justify-center gap-2 text-xs text-muted-foreground"
             >
               <Link to="/" className="transition-colors hover:text-foreground">
@@ -64,6 +64,7 @@ export function PageHero({
               {description}
             </p>
           ) : null}
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">{t(ui.demoClaims)}</p>
           {children ? <div className="mt-10">{children}</div> : null}
         </div>
       </Container>

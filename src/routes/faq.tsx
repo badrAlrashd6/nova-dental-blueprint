@@ -18,14 +18,15 @@ export const Route = createFileRoute("/faq")({
       {
         name: "description",
         content:
-          "إجابات عن المواعيد والتأمين والألم والدفع وساعات العمل في عيادة نوفا لطب الأسنان في دمشق، سوريا.",
+          "مشروع نوفا الأكاديمي في دمشق، سوريا — محتوى خيالي للعرض فقط. لا تُقدم رعاية أو حجوزات فعلية.",
       },
       { property: "og:title", content: "الأسئلة الشائعة | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "كل ما تحتاج معرفته قبل زيارتك الأولى لعيادة نوفا لطب الأسنان.",
+        content: "Nova Dental Clinic — academic demonstration in Damascus, Syria. Fictional content; no real care or bookings.",
       },
-      { property: "og:url", content: "/faq" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/faq" }],
   }),
@@ -35,7 +36,7 @@ export const Route = createFileRoute("/faq")({
 function FaqPage() {
   const { t } = useLang();
   const [open, setOpen] = useState<number | null>(0);
-  const crumb = navLinks.find((l) => l.to === "/faq")!.label;
+  const crumb = navLinks.find((l) => l.to === "/faq")?.label ?? ui.home;
 
   return (
     <>

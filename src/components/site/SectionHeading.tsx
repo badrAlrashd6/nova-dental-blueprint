@@ -1,3 +1,5 @@
+import { useLang } from "@/lib/i18n";
+import { ui } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 
@@ -14,6 +16,7 @@ export function SectionHeading({
   align?: "left" | "center";
   className?: string;
 }) {
+  const { t } = useLang();
   return (
     <div className={cn("max-w-2xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow ? (
@@ -25,6 +28,7 @@ export function SectionHeading({
       <h2 className="mt-5 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
         {title}
       </h2>
+      <p className="mt-3 text-xs text-muted-foreground">{t(ui.demoItem)}</p>
       {description ? (
         <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{description}</p>
       ) : null}

@@ -16,14 +16,15 @@ export const Route = createFileRoute("/testimonials")({
       {
         name: "description",
         content:
-          "تجارب حقيقية لمرضى عيادة نوفا لطب الأسنان في سوريا: زراعة، تقويم، تبييض وتصميم ابتسامة.",
+          "مشروع نوفا الأكاديمي في دمشق، سوريا — محتوى خيالي للعرض فقط. لا تُقدم رعاية أو حجوزات فعلية.",
       },
       { property: "og:title", content: "آراء المرضى | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "قصص ابتسامة حقيقية من مرضى عيادة نوفا في دمشق، سوريا.",
+        content: "Nova Dental Clinic — academic demonstration in Damascus, Syria. Fictional content; no real care or bookings.",
       },
-      { property: "og:url", content: "/testimonials" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/testimonials" }],
   }),
@@ -32,7 +33,7 @@ export const Route = createFileRoute("/testimonials")({
 
 function TestimonialsPage() {
   const { t } = useLang();
-  const crumb = navLinks.find((l) => l.to === "/testimonials")!.label;
+  const crumb = navLinks.find((l) => l.to === "/testimonials")?.label ?? ui.home;
 
   return (
     <>
@@ -59,6 +60,7 @@ function TestimonialsPage() {
               delay={i * 70}
               className="flex h-full flex-col rounded-3xl border border-border bg-card p-7 shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-elevated"
             >
+              <p className="mb-3 text-xs text-muted-foreground">{t(ui.demoItem)}</p>
               <div className="flex gap-0.5">
                 {Array.from({ length: item.rating }).map((_, s) => (
                   <Star key={s} className="h-3.5 w-3.5 fill-accent text-accent" aria-hidden />

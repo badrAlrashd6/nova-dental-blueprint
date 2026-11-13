@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 function LangSwitch({ className }: { className?: string }) {
-  const { lang, setLang } = useLang();
+  const { lang, setLang, t } = useLang();
   return (
     <div
       className={cn(
@@ -17,7 +17,7 @@ function LangSwitch({ className }: { className?: string }) {
         className,
       )}
       role="group"
-      aria-label="Language"
+      aria-label={t(ui.language)}
     >
       {(["ar", "en"] as const).map((l) => (
         <button
@@ -102,7 +102,7 @@ export function SiteNav() {
             <Logo />
           </Link>
 
-          <nav className="hidden items-center gap-1 xl:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-1 xl:flex" aria-label={t(ui.primaryNav)}>
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -136,7 +136,7 @@ export function SiteNav() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={t(open ? ui.closeMenu : ui.openMenu)}
             aria-expanded={open}
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background/70 text-foreground lg:hidden"
           >
@@ -155,7 +155,7 @@ export function SiteNav() {
         )}
       >
         <div className="mx-4 rounded-3xl border border-border bg-background/95 p-6 shadow-elevated backdrop-blur-xl">
-          <nav className="flex flex-col gap-1" aria-label="Mobile">
+          <nav className="flex flex-col gap-1" aria-label={t(ui.mobileNav)}>
             {navLinks.map((link) => (
               <Link
                 key={link.to}

@@ -19,14 +19,15 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "طرق التواصل مع عيادة نوفا لطب الأسنان في دمشق، سوريا. بيانات التواصل تُضاف قريباً.",
+          "مشروع نوفا الأكاديمي في دمشق، سوريا — محتوى خيالي للعرض فقط. لا تُقدم رعاية أو حجوزات فعلية.",
       },
       { property: "og:title", content: "تواصل معنا | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "العنوان وساعات العمل وطرق التواصل مع عيادة نوفا في دمشق، سوريا.",
+        content: "Nova Dental Clinic — academic demonstration in Damascus, Syria. Fictional content; no real care or bookings.",
       },
-      { property: "og:url", content: "/contact" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
   }),
@@ -35,7 +36,7 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const { t } = useLang();
-  const crumb = navLinks.find((l) => l.to === "/contact")!.label;
+  const crumb = navLinks.find((l) => l.to === "/contact")?.label ?? ui.home;
 
   return (
     <>

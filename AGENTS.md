@@ -24,6 +24,7 @@
 
 ## Error handling
 - Route errors go through the root `errorComponent`; SSR failures through `src/server.ts`.
+- App-owned error diagnostics use the local console logger without vendor hooks or remote reporting, so application code stays platform-neutral.
 - Never let missing optional data throw; render a fallback instead.
 
 ## Security
@@ -34,6 +35,13 @@
 ## Dependencies
 - Do not add a package when the existing stack covers the need; justify any new dependency.
 - Check imports and usage before removing a file or package.
+- Keep hosted and standalone Vite configurations separate: the former preserves Lovable preview, while the latter uses open-source plugins and defaults to Nitro's Node server output.
+- Reuse centralized disclosure copy in shared headings, images and item displays so demo claims remain labeled wherever reused.
+
+## Verification and academic handoff
+- README records commands actually run and their outcomes; never equate a working hosted preview with a verified standalone production build.
+- Explain student contributions and assistance truthfully; neither cleanup nor removal of platform runtime hooks establishes sole authorship.
+- Phase 1 does not add persistence, authentication or payment processing; booking only validates locally and contact displays placeholders.
 
 <!-- LOVABLE:BEGIN -->
 > [!IMPORTANT]

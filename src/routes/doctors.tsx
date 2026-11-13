@@ -17,14 +17,15 @@ export const Route = createFileRoute("/doctors")({
       {
         name: "description",
         content:
-          "استشاريون وأخصائيون في زراعة الأسنان والتقويم والتجميل وطب أسنان الأطفال في عيادة نوفا، دمشق، سوريا.",
+          "مشروع نوفا الأكاديمي في دمشق، سوريا — محتوى خيالي للعرض فقط. لا تُقدم رعاية أو حجوزات فعلية.",
       },
       { property: "og:title", content: "الأطباء | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "تعرّف على الفريق الطبي في عيادة نوفا لطب الأسنان بسوريا.",
+        content: "Nova Dental Clinic — academic demonstration in Damascus, Syria. Fictional content; no real care or bookings.",
       },
-      { property: "og:url", content: "/doctors" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/doctors" }],
   }),
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/doctors")({
 
 function DoctorsPage() {
   const { t } = useLang();
-  const crumb = navLinks.find((l) => l.to === "/doctors")!.label;
+  const crumb = navLinks.find((l) => l.to === "/doctors")?.label ?? ui.home;
 
   return (
     <>
@@ -65,6 +66,7 @@ function DoctorsPage() {
                   <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                     {t(d.name)}
                   </h2>
+                  <p className="mt-2 text-xs text-muted-foreground">{t(ui.demoItem)}</p>
                   <p className="mt-2 text-sm font-medium text-primary">{t(d.specialty)}</p>
                   <p className="mt-1 text-xs text-muted-foreground">{t(d.experience)}</p>
                   <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{t(d.bio)}</p>

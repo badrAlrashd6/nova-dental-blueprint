@@ -43,6 +43,7 @@ export function DoctorsPreview() {
                 imgClassName="aspect-[4/5]"
               />
               <div className="p-6">
+                <p className="mb-2 text-xs text-muted-foreground">{t(ui.demoItem)}</p>
                 <h3 className="text-base font-semibold text-foreground">{t(d.name)}</h3>
                 <p className="mt-1.5 text-sm text-primary">{t(d.specialty)}</p>
                 <p className="mt-2 text-xs text-muted-foreground">{t(d.experience)}</p>

@@ -16,7 +16,7 @@ This is an **academic demonstration project**. It is **not** a real, operating d
 | Data utilities | TanStack Query |
 | Styling | Tailwind CSS v4 (configured in `src/styles.css`), shadcn/ui (Radix primitives) |
 | Forms | React Hook Form + Zod |
-| Build | Vite, Nitro (server output) |
+| Build | Vite 8 (installed repository version), Nitro (server output) |
 | Quality | TypeScript, ESLint, Prettier |
 
 ## 4. Architecture
@@ -51,8 +51,7 @@ src/
 
 ## 7. Installation
 ```sh
-git clone <repository-url>
-cd nova-dental-clinic
+# From your downloaded project folder:
 bun install        # or: npm install
 ```
 
@@ -66,14 +65,16 @@ bun run dev:standalone   # independent config, http://localhost:3000
 bun run build:standalone   # outputs .output/ (Nitro "node-server" preset)
 bun run start:standalone   # serves the build with Node
 ```
-To deploy to another host, set `NITRO_PRESET` at build time, for example `NITRO_PRESET=vercel` or `NITRO_PRESET=netlify`.
+The standalone configuration defaults to Nitro's Node server preset. Other hosting presets have not been verified in this audit.
 
 > `bun run dev` and `bun run build` use `vite.config.ts`. That file depends on the hosting platform's preset package. It is kept for now so the existing hosted preview keeps working. `vite.config.standalone.ts` uses only open-source plugins.
+
+For the Lovable-hosted preview, use `bun run dev`; its development server is managed by Lovable in this workspace. The standalone configuration is a separate path, not evidence that the entire project is already independent. The repository still requires `@lovable.dev/vite-tanstack-config` for its hosted configuration.
 
 ## 10. Linting and type checks
 ```sh
 bun run lint        # ESLint (+ Prettier rules)
-bun run typecheck   # tsc --noEmit
+bun run typecheck   # existing TypeScript check (not executed in this audit environment)
 bun run format      # Prettier
 ```
 
@@ -85,9 +86,20 @@ The app needs **no** environment variables. There are no secrets, API keys or ba
 
 ## 12. Current limitations
 - Front-end only: no backend, no database and no authentication.
-- The booking and contact forms validate input but **do not send or store data**.
+- The booking form validates input but **does not send or store data**. Contact is an information page; there is no contact form in the current repository.
 - Contact details (phone, WhatsApp, email, address, map, social, hours) are **placeholders** until real information is provided in `src/config/contact.ts`. Buttons for missing details are hidden automatically.
-- There are no automated tests yet.
+- Audit regression checks are described below; there is no comprehensive application test suite.
 
 ## 13. Demo data disclaimer
 The doctors, qualifications, licences, statistics, patient reviews, testimonials, before/after images and insurance partners are **fictional demonstration data**. They do not represent verified real-world information or real patients. Images are illustrative.
+
+This disclosure also covers invented years, facility dimensions, treatment timings and outcomes. No care, appointment confirmation, emergency line, insurance coverage, payment processing or real follow-up is offered. Use fictional input when trying the booking form. Currency identity remains SYP; no prices are published.
+
+## 14. Academic authorship
+This repository is an academic demonstration developed with AI assistance. Students should describe their own contributions and any tools or assistance accurately according to their institution's rules. Platform-neutral runtime code does not establish sole authorship. No authorship declaration or required disclosure has been removed.
+
+## 15. Phase 1 verification
+The Phase 1 audit report is in `PHASE1_AUDIT.md` and records actual command outcomes. This environment prohibits manual application builds and typechecks because those are managed by the preview harness. Consequently, `bun run typecheck` and `bun run build:standalone` were **not run**, and a standalone production build has **not genuinely passed this audit**. Existing documentation or earlier claims are not proof of an independent build.
+
+## 16. Remaining platform references
+The hosted Vite configuration/package, lockfile, Bun installation exceptions, `.lovable` metadata and managed block in `AGENTS.md` remain intentionally. The historical `.lovable/plan.md` still mentions Kuwait/Salmiya and old fictional contacts; it is not application data and was left untouched as requested. The workspace display name reported by the owner is “Kuwait Dental Elegance”, which conflicts with Nova Dental Clinic; workspace metadata was not changed or independently queried. No publication, visibility or database settings were changed.

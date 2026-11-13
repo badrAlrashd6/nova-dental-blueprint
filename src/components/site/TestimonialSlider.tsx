@@ -16,13 +16,16 @@ export function TestimonialSlider() {
     return () => window.clearInterval(id);
   }, [count]);
 
-  const item = testimonials[index]!;
+  const item = testimonials[index];
   const Prev = isAr ? ChevronRight : ChevronLeft;
   const Next = isAr ? ChevronLeft : ChevronRight;
+
+  if (!item) return null;
 
   return (
     <Reveal className="mx-auto mt-14 max-w-3xl">
       <figure className="relative rounded-[2rem] border border-border bg-card p-9 shadow-elevated sm:p-12">
+        <p className="mb-3 text-xs text-muted-foreground">{t(ui.demoItem)}</p>
         <Quote className="h-8 w-8 text-primary/25" aria-hidden />
         <blockquote
           key={index}

@@ -11,28 +11,31 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { logApplicationError } from "../lib/error-logger";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { LanguageProvider } from "@/lib/i18n";
+import { ui } from "@/lib/site";
+import { Button } from "@/components/ui/button";
+import { LanguageProvider, useLang } from "@/lib/i18n";
 
 function NotFoundComponent() {
+  const { t } = useLang();
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-semibold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">
-          الصفحة غير موجودة · Page not found
+          {t(ui.notFound)}
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+          {t(ui.notFoundDesc)}
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Go home
+            {t(ui.home)}
           </Link>
         </div>
       </div>
@@ -41,36 +44,36 @@ function NotFoundComponent() {
 }
 
 function ErrorComponent({ error, reset }: ErrorComponentProps) {
-  console.error(error);
+  const { t } = useLang();
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    logApplicationError(error);
   }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+          {t(ui.errorTitle)}
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          {t(ui.errorDesc)}
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button
+          <Button
             onClick={() => {
               router.invalidate();
               reset();
             }}
             className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Try again
-          </button>
+            {t(ui.retry)}
+          </Button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-full border border-input bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Go home
+            {t(ui.home)}
           </a>
         </div>
       </div>
@@ -87,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
+          "عيادة نوفا — مشروع أكاديمي خيالي في دمشق، سوريا؛ لا يقدم رعاية أو حجوزات فعلية.",
       },
       { name: "author", content: "Nova Dental Clinic (academic project)" },
       { property: "og:site_name", content: "Nova Dental Clinic | عيادة نوفا لطب الأسنان" },
@@ -104,12 +107,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
+          "عيادة نوفا — مشروع أكاديمي خيالي في دمشق، سوريا؛ لا يقدم رعاية أو حجوزات فعلية.",
       },
       {
         name: "twitter:description",
         content:
-          "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
+          "عيادة نوفا — مشروع أكاديمي خيالي في دمشق، سوريا؛ لا يقدم رعاية أو حجوزات فعلية.",
       },
     ],
     links: [

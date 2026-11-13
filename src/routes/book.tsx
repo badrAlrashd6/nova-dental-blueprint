@@ -17,14 +17,15 @@ export const Route = createFileRoute("/book")({
       {
         name: "description",
         content:
-          "احجز موعدك في عيادة نوفا لطب الأسنان في دمشق، سوريا. اختر العلاج والطبيب والوقت المناسب ونؤكد خلال ساعة عمل واحدة.",
+          "مشروع نوفا الأكاديمي في دمشق، سوريا — محتوى خيالي للعرض فقط. لا تُقدم رعاية أو حجوزات فعلية.",
       },
       { property: "og:title", content: "احجز موعد | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "احجز استشارتك في عيادة نوفا لطب الأسنان، دمشق، سوريا.",
+        content: "Nova Dental Clinic — academic demonstration in Damascus, Syria. Fictional content; no real care or bookings.",
       },
-      { property: "og:url", content: "/book" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/book" }],
   }),
@@ -100,6 +101,7 @@ function BookPage() {
             ) : (
               <form onSubmit={onSubmit} noValidate>
                 <h2 className="text-xl font-semibold text-foreground">{t(ui.formTitle)}</h2>
+                <p className="mt-3 text-sm text-muted-foreground">{t(ui.bookHeroDesc)}</p>
 
                 <div className="mt-7 grid gap-6 sm:grid-cols-2">
                   <div>

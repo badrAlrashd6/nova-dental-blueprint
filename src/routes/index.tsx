@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
+          "مشروع نوفا الأكاديمي في دمشق، سوريا — محتوى خيالي للعرض فقط. لا تُقدم رعاية أو حجوزات فعلية.",
       },
       {
         property: "og:title",
@@ -41,9 +41,10 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "عيادة نوفا لطب الأسنان في دمشق، سوريا — زراعة، تقويم، ابتسامة هوليوود وتبييض ضمن بيئة طبية حديثة وفريق متخصص.",
+          "Nova Dental Clinic — academic demonstration in Damascus, Syria. Fictional content; no real care or bookings.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
@@ -65,16 +66,10 @@ function Home() {
                 {t(ui.demo)}
               </span>
               <h1 className="mt-6 text-4xl leading-[1.15] font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                {t({
-                  ar: "ابتسامة صحية... تبدأ مع خبراء يضعون راحتك أولاً.",
-                  en: "A healthy smile starts with specialists who put your comfort first.",
-                })}
+                {t(ui.heroTitle)}
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                {t({
-                  ar: "في عيادة نوفا لطب الأسنان نقدم أحدث تقنيات علاج وتجميل الأسنان ضمن بيئة طبية حديثة وفريق متخصص يحرص على راحتك وابتسامتك.",
-                  en: "At Nova Dental Clinic we combine the latest restorative and cosmetic dentistry with a modern clinical environment and a team devoted to your comfort.",
-                })}
+                {t(ui.heroDesc)}
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3">
                 <Button
@@ -134,7 +129,7 @@ function Home() {
                     ))}
                   </div>
                   <span className="text-xs text-muted-foreground">
-                    {t({ ar: "٤.٩ من ٥ تقييم المرضى", en: "4.9/5 patient rating" })}
+                    {t(ui.demoRating)}
                   </span>
                 </div>
               </div>

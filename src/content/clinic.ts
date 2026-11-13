@@ -436,7 +436,7 @@ export type Testimonial = {
   quote: L;
   initials: string;
   rating: number;
-  /** Optional portrait — swap for a real patient photo when available. */
+  /** Illustrative portrait only; never use real patient information. */
   avatar?: string;
 };
 
@@ -522,16 +522,16 @@ export const faqs: Faq[] = [
     category: { ar: "المواعيد", en: "Appointments" },
     question: { ar: "كيف أحجز موعداً في عيادة نوفا؟", en: "How do I book an appointment at Nova?" },
     answer: {
-      ar: "يمكنك الحجز عبر نموذج الحجز في الموقع أو الاتصال بنا أو عبر واتساب. يتواصل معك منسق المرضى لتأكيد الموعد خلال ساعة عمل واحدة.",
-      en: "Book through the form on this site, by phone, or on WhatsApp. A patient coordinator confirms your slot within one working hour.",
+      ar: "النموذج تجربة أكاديمية فقط؛ لا يرسل أو يحفظ بيانات ولا ينشئ موعداً. بيانات التواصل غير متاحة.",
+      en: "The form is an academic demonstration only; it does not send or store data or create an appointment. Contact details are unavailable.",
     },
   },
   {
     category: { ar: "التأمين", en: "Insurance" },
     question: { ar: "هل تقبلون التأمين الطبي؟", en: "Do you accept medical insurance?" },
     answer: {
-      ar: "نتعامل مع أغلب شركات التأمين العاملة في سوريا. يُرجى إحضار بطاقة التأمين في زيارتك الأولى للتحقق من التغطية. (شركاء التأمين المعروضون هنا هم للعرض فقط.)",
-      en: "We work with most insurers operating in Syria. Please bring your card to your first visit so we can verify coverage. (Insurance partners shown here are for demonstration only.)",
+      ar: "لا توجد شراكات تأمين فعلية. الأسماء المعروضة أمثلة تجريبية فقط.",
+      en: "There are no real insurance partnerships. Displayed names are demonstration examples only.",
     },
   },
   {
@@ -541,48 +541,48 @@ export const faqs: Faq[] = [
       en: "What should I do in a dental emergency?",
     },
     answer: {
-      ar: "اتصل بخط الطوارئ مباشرة. نستقبل حالات الألم الحاد والكسور في نفس اليوم، وخط الطوارئ يعمل على مدار الساعة.",
-      en: "Call the emergency line directly. We see acute pain and fractures the same day, and the line is staffed around the clock.",
+      ar: "هذا الموقع لا يقدم رعاية أو خط طوارئ. في حالة طارئة تواصل مع مقدم رعاية محلي فعلي أو خدمات الطوارئ المحلية.",
+      en: "This site provides no care or emergency line. In an emergency, contact an actual local healthcare provider or local emergency services.",
     },
   },
   {
     category: { ar: "العلاجات", en: "Treatments" },
     question: { ar: "كم تستغرق زراعة السن؟", en: "How long does a dental implant take?" },
     answer: {
-      ar: "الجراحة نفسها تستغرق من ٦٠ إلى ٩٠ دقيقة. مرحلة الالتحام تحتاج من ٨ إلى ١٢ أسبوعاً قبل تركيب التاج النهائي.",
-      en: "The surgery itself takes 60–90 minutes. Integration then takes 8–12 weeks before the final crown is placed.",
+      ar: "الأوقات المعروضة أمثلة خيالية وليست نصيحة طبية. يحدد طبيب مؤهل المدة بحسب الحالة.",
+      en: "Displayed timings are fictional examples, not medical advice. A qualified clinician must assess timing for each case.",
     },
   },
   {
     category: { ar: "الألم", en: "Pain" },
     question: { ar: "هل العلاج مؤلم؟", en: "Is treatment painful?" },
     answer: {
-      ar: "نستخدم بروتوكول تخدير لطيف يبدأ بمخدر موضعي سطحي قبل الحقن. أغلب المرضى يصفون الجلسة بأنها مريحة، وتتوفر خيارات استرخاء إضافية.",
-      en: "We use a gentle protocol starting with topical anaesthetic before any injection. Most patients describe the session as comfortable, and additional relaxation options are available.",
+      ar: "وصف الراحة هنا محتوى خيالي وليس ضماناً لغياب الألم. ناقش خيارات التخدير مع طبيب مؤهل.",
+      en: "Comfort descriptions here are fictional, not a guarantee of pain-free care. Discuss anaesthesia options with a qualified clinician.",
     },
   },
   {
     category: { ar: "الدفع", en: "Payment" },
     question: { ar: "ما هي طرق الدفع المتاحة؟", en: "Which payment methods do you accept?" },
     answer: {
-      ar: "نقبل كي-نت، البطاقات الائتمانية، والتحويل البنكي. كما تتوفر خطط تقسيط على العلاجات التجميلية والزراعة.",
-      en: "We accept K-Net, credit cards and bank transfer. Instalment plans are available for cosmetic and implant treatments.",
+      ar: "لا تُقبل مدفوعات ولا تُعرض خطط تقسيط. رمز العملة في المشروع هو SYP؛ لا توجد أسعار منشورة.",
+      en: "This project accepts no payments and offers no instalment plans. Its currency code is SYP; no prices are published.",
     },
   },
   {
     category: { ar: "ساعات العمل", en: "Clinic Hours" },
     question: { ar: "ما هي ساعات عمل المركز؟", en: "What are the clinic hours?" },
     answer: {
-      ar: "من السبت إلى الأربعاء من ٩ صباحاً حتى ٩ مساءً، الخميس حتى ٦ مساءً، والجمعة مغلق.",
-      en: "Saturday to Wednesday 9:00 AM – 9:00 PM, Thursday until 6:00 PM, closed on Friday.",
+      ar: "ساعات العمل غير متاحة؛ هذا مشروع أكاديمي وليس عيادة عاملة.",
+      en: "Opening hours are unavailable; this is an academic project, not an operating clinic.",
     },
   },
   {
     category: { ar: "المواقف", en: "Parking" },
     question: { ar: "هل تتوفر مواقف للسيارات؟", en: "Is parking available?" },
     answer: {
-      ar: "نعم، يوجد موقف مخصص للمرضى في الطابق السفلي من مبنى العيادة، بالإضافة إلى خدمة صف السيارات مجاناً.",
-      en: "Yes — dedicated patient parking in the basement of the clinic building, plus complimentary valet service.",
+      ar: "صور المبنى والمرافق توضيحية فقط؛ لا توجد معلومات فعلية عن المواقف أو خدمة صف السيارات.",
+      en: "Building and facility images are illustrative only; no actual parking or valet arrangements are provided.",
     },
   },
 ];
@@ -637,8 +637,8 @@ export const timeline: { year: string; title: L; description: L }[] = [
     year: "2017",
     title: { ar: "قسم الزراعة الرقمية", en: "Digital implant department" },
     description: {
-      ar: "أول مركز في المنطقة يعتمد التخطيط الجراحي الموجّه بالكامل.",
-      en: "One of the first centres in the area to adopt fully guided surgical planning.",
+      ar: "محطة خيالية لإضافة التخطيط الجراحي الرقمي إلى قصة المشروع.",
+      en: "A fictional milestone introducing digital surgical planning into the project story.",
     },
   },
   {
@@ -672,7 +672,7 @@ export const insurers: L[] = [
   { ar: "الشام للتأمين", en: "Sham Assure" },
   { ar: "نوفا كير", en: "Nova Care" },
   { ar: "الوطنية الطبية", en: "Watania Medical" },
-  { ar: "مِدنِت", en: "MedNet" },
+  { ar: "مثال تأمين ٤", en: "Insurance Example 4" },
   { ar: "الأمان الصحي", en: "Aman Health" },
   { ar: "الياسمين الطبي", en: "Yasmin Medical" },
 ];

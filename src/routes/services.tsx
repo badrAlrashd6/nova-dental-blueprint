@@ -17,14 +17,15 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "زراعة الأسنان، التقويم، ابتسامة هوليوود، القشور الخزفية، التبييض، علاج الجذور وطب أسنان الأطفال في عيادة نوفا في دمشق، سوريا.",
+          "مشروع نوفا الأكاديمي في دمشق، سوريا — محتوى خيالي للعرض فقط. لا تُقدم رعاية أو حجوزات فعلية.",
       },
       { property: "og:title", content: "خدماتنا | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "عشر خدمات متخصصة تغطي الوقاية والعلاج والتجميل في عيادة نوفا، سوريا.",
+        content: "Nova Dental Clinic — academic demonstration in Damascus, Syria. Fictional content; no real care or bookings.",
       },
-      { property: "og:url", content: "/services" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
   }),
@@ -67,6 +68,7 @@ function ServicesPage() {
                   <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                     {t(s.description)}
                   </p>
+                  <p className="mt-3 text-xs text-muted-foreground">{t(ui.demoService)}</p>
 
                   <p className="mt-7 text-xs font-semibold tracking-wide text-foreground uppercase">
                     {t(ui.benefitsLabel)}

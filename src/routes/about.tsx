@@ -22,14 +22,15 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "تعرّف على عيادة نوفا لطب الأسنان في دمشق: فريق استشاري، مختبر رقمي داخلي، وثمانِ غرف علاج خاصة منذ ٢٠١٤.",
+          "مشروع نوفا الأكاديمي في دمشق، سوريا — محتوى خيالي للعرض فقط. لا تُقدم رعاية أو حجوزات فعلية.",
       },
       { property: "og:title", content: "من نحن | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "قصة عيادة نوفا لطب الأسنان في دمشق، سوريا — قيمنا وفريقنا وتقنياتنا.",
+        content: "Nova Dental Clinic — academic demonstration in Damascus, Syria. Fictional content; no real care or bookings.",
       },
-      { property: "og:url", content: "/about" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),

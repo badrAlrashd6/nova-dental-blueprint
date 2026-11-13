@@ -1,6 +1,7 @@
 import { Container } from "@/components/site/Container";
 import { CountUp } from "@/components/site/CountUp";
 import { Reveal } from "@/components/site/Reveal";
+import { ui } from "@/lib/site";
 import { stats } from "@/content/clinic";
 import { useLang } from "@/lib/i18n";
 
@@ -21,6 +22,7 @@ export function StatsSection() {
                 <CountUp value={s.value} decimals={s.decimals ?? 0} />
                 {s.suffix ?? ""}
               </div>
+              <p className="mt-2 text-xs text-muted-foreground">{t(ui.demoItem)}</p>
               <p className="mt-3 text-sm font-medium text-muted-foreground">{t(s.label)}</p>
             </Reveal>
           ))}
