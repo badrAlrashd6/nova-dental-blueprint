@@ -23,7 +23,10 @@ export function BeforeAfterSection() {
         <div className="relative overflow-hidden rounded-[2rem] border border-border shadow-elevated">
           <img
             src={afterImg}
-            alt={t({ ar: "صورة ابتسامة توضيحية بعد — ليست نتيجة علاج حقيقية", en: "Illustrative after smile — not a real treatment result" })}
+            alt={t({
+              ar: "صورة ابتسامة توضيحية بعد — ليست نتيجة علاج حقيقية",
+              en: "Illustrative after smile — not a real treatment result",
+            })}
             width={1600}
             height={1100}
             loading="lazy"

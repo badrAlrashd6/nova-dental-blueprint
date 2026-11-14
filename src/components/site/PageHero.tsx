@@ -64,7 +64,9 @@ export function PageHero({
               {description}
             </p>
           ) : null}
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">{t(ui.demoClaims)}</p>
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            {t(ui.demoClaims)}
+          </p>
           {children ? <div className="mt-10">{children}</div> : null}
         </div>
       </Container>

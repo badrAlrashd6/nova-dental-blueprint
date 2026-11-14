@@ -22,7 +22,8 @@ export const Route = createFileRoute("/doctors")({
       { property: "og:title", content: "الأطباء | عيادة نوفا لطب الأسنان" },
       {
         property: "og:description",
-        content: "Nova Dental Clinic — academic demonstration in Damascus, Syria. Fictional content; no real care or bookings.",
+        content:
+          "Nova Dental Clinic — academic demonstration in Damascus, Syria. Fictional content; no real care or bookings.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

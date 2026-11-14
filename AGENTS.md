@@ -42,6 +42,7 @@
 - README records commands actually run and their outcomes; never equate a working hosted preview with a verified standalone production build.
 - Explain student contributions and assistance truthfully; neither cleanup nor removal of platform runtime hooks establishes sole authorship.
 - Phase 1 does not add persistence, authentication or payment processing; booking only validates locally and contact displays placeholders.
+- No test runner/script is configured; do not add runner-specific test files to application TypeScript inputs without configuring their tooling, because unresolved test imports break preview checks.
 
 <!-- LOVABLE:BEGIN -->
 > [!IMPORTANT]

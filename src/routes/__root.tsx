@@ -24,12 +24,8 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-semibold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">
-          {t(ui.notFound)}
-        </h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          {t(ui.notFoundDesc)}
-        </p>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">{t(ui.notFound)}</h2>
+        <p className="mt-2 text-sm text-muted-foreground">{t(ui.notFoundDesc)}</p>
         <div className="mt-6">
           <Link
             to="/"
@@ -53,12 +49,8 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          {t(ui.errorTitle)}
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          {t(ui.errorDesc)}
-        </p>
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">{t(ui.errorTitle)}</h1>
+        <p className="mt-2 text-sm text-muted-foreground">{t(ui.errorDesc)}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <Button
             onClick={() => {
@@ -89,8 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "عيادة نوفا لطب الأسنان | Nova Dental Clinic — Damascus, Syria" },
       {
         name: "description",
-        content:
-          "عيادة نوفا — مشروع أكاديمي خيالي في دمشق، سوريا؛ لا يقدم رعاية أو حجوزات فعلية.",
+        content: "عيادة نوفا — مشروع أكاديمي خيالي في دمشق، سوريا؛ لا يقدم رعاية أو حجوزات فعلية.",
       },
       { name: "author", content: "Nova Dental Clinic (academic project)" },
       { property: "og:site_name", content: "Nova Dental Clinic | عيادة نوفا لطب الأسنان" },
@@ -106,13 +97,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         property: "og:description",
-        content:
-          "عيادة نوفا — مشروع أكاديمي خيالي في دمشق، سوريا؛ لا يقدم رعاية أو حجوزات فعلية.",
+        content: "عيادة نوفا — مشروع أكاديمي خيالي في دمشق، سوريا؛ لا يقدم رعاية أو حجوزات فعلية.",
       },
       {
         name: "twitter:description",
-        content:
-          "عيادة نوفا — مشروع أكاديمي خيالي في دمشق، سوريا؛ لا يقدم رعاية أو حجوزات فعلية.",
+        content: "عيادة نوفا — مشروع أكاديمي خيالي في دمشق، سوريا؛ لا يقدم رعاية أو حجوزات فعلية.",
       },
     ],
     links: [
