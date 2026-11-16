@@ -8,9 +8,9 @@
 - [x] Prepare the incremental repair for commit; stop before Phase 2 without publishing or changing settings.
 
 ## Phase 2 (in progress)
-- [ ] Connect existing Supabase project zetedflpwzhwgiuzdlcj (Nova only) — blocked: user must connect it in Project Settings → General → External Supabase; project must be ACTIVE
+- [x] Lovable Cloud enabled (replaces plan to connect the external project; that project is not used)
 - [ ] Schema + RLS (appointment_requests, user_roles, has_role) — after connection
 - [ ] Booking form persistence via validated server function — after schema
 - [ ] /admin/login + protected /admin dashboard (view, status change, delete) — after schema
-- [ ] Create single admin server-side — needs admin email from user
+- [ ] Create single admin — needs admin email from user
 - Phase 1 typecheck / standalone build remain deferred and unverified
