@@ -41,7 +41,11 @@
 ## Verification and academic handoff
 - README records commands actually run and their outcomes; never equate a working hosted preview with a verified standalone production build.
 - Explain student contributions and assistance truthfully; neither cleanup nor removal of platform runtime hooks establishes sole authorship.
-- Phase 1 does not add persistence, authentication or payment processing; booking only validates locally and contact displays placeholders.
+- Bookings persist only through the validated `submitBooking` server function (server-only client); visitors have no table privileges, so never add anon policies or grants on booking tables.
+- Admin access is a single allowlisted, email-confirmed account enforced by the `is_nova_admin()` database function plus a server-side check in every admin server function; route gates are convenience only.
+- Admin accounts are never created from the app: public signup is disabled and sign-in uses magic links with `shouldCreateUser: false`.
+- Booking allowlists (services, doctors, time slots) live in `src/lib/booking.ts` and are mirrored by database CHECK constraints; change both together.
+- Contact form and payments remain out of scope; contact values stay placeholders.
 - No test runner/script is configured; do not add runner-specific test files to application TypeScript inputs without configuring their tooling, because unresolved test imports break preview checks.
 
 <!-- LOVABLE:BEGIN -->

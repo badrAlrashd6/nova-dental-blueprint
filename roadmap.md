@@ -9,8 +9,11 @@
 
 ## Phase 2 (in progress)
 - [x] Lovable Cloud enabled (replaces plan to connect the external project; that project is not used)
-- [ ] Schema + RLS (appointment_requests, user_roles, has_role) — after connection
-- [ ] Booking form persistence via validated server function — after schema
-- [ ] /admin/login + protected /admin dashboard (view, status change, delete) — after schema
-- [ ] Create single admin — needs admin email from user
+- [x] Booking schema + strict RLS + single-admin allowlist (badralrashd6@gmail.com)
+- [x] Booking form persistence via validated server function (Zod, idempotency key)
+- [x] /admin/login (magic link, no signup) + protected /admin dashboard (counts, search/filter, detail, status, delete)
+- [x] Verify anon insert-only, duplicates, validation, signed-out rejection
+- [ ] Verify signed-in admin flows and non-admin rejection — blocked until the admin account exists
+- [ ] Admin account invite — owner action: More → Users → Add user → Send invitation
+- [x] Update README/AGENTS.md with what was implemented
 - Phase 1 typecheck / standalone build remain deferred and unverified

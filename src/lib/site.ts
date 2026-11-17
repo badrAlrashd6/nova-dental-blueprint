@@ -96,8 +96,8 @@ export const ui = {
     en: "People, credentials, reviews and statistics are fictional. Images are illustrative, not real patients.",
   } as L,
   contactPendingNote: {
-    ar: "بيانات التواصل غير متاحة. النموذج تجريبي فقط ولا يرسل أي طلب.",
-    en: "Contact details are unavailable. The form is a demonstration and does not send a request.",
+    ar: "بيانات التواصل غير متاحة. النموذج تجريبي ويحفظ الطلب للعرض فقط دون أي متابعة.",
+    en: "Contact details are unavailable. The form is a demonstration; requests are stored for the demo only, with no follow-up.",
   } as L,
   demoLogos: {
     ar: "أسماء تجريبية فقط — لا شراكات فعلية",
@@ -183,8 +183,8 @@ export const ui = {
     en: "Ready for the smile you deserve?",
   } as L,
   ctaDesc: {
-    ar: "نموذج حجز أكاديمي فقط؛ لا تُرسل البيانات ولا تُحفظ ولا يُؤكد أي موعد.",
-    en: "Academic booking demonstration only; data is not sent or stored and no appointment is confirmed.",
+    ar: "نموذج حجز أكاديمي فقط؛ يُحفظ الطلب للعرض التجريبي ولا يُؤكد أي موعد حقيقي.",
+    en: "Academic booking demonstration only; requests are stored for the demo and no real appointment is confirmed.",
   } as L,
   experienceEyebrow: { ar: "تجربة المريض", en: "Patient Experience" } as L,
   experienceTitle: {
@@ -295,8 +295,8 @@ export const ui = {
   bookHeroEyebrow: { ar: "حجز موعد", en: "Booking" } as L,
   bookHeroTitle: { ar: "احجز موعدك في عيادة نوفا", en: "Book your appointment at Nova" } as L,
   bookHeroDesc: {
-    ar: "جرّب النموذج ببيانات خيالية فقط. لا يتم إرسال أو حفظ البيانات أو إنشاء موعد.",
-    en: "Try the form with fictional details only. Nothing is sent or stored and no appointment is created.",
+    ar: "مشروع أكاديمي تجريبي: استخدم بيانات خيالية فقط. يُحفظ الطلب في قاعدة بيانات العرض التجريبي، لكنه ليس موعداً حقيقياً ولن تكون هناك متابعة طبية.",
+    en: "Academic demo: use fictional details only. Your request is stored in the demo database, but it is not a real appointment and there is no medical follow-up.",
   } as L,
   formTitle: { ar: "بيانات الحجز", en: "Appointment details" } as L,
   fullName: { ar: "الاسم الكامل", en: "Full name" } as L,
@@ -314,8 +314,8 @@ export const ui = {
   timePh: { ar: "اختر الوقت", en: "Select a time" } as L,
   notesField: { ar: "ملاحظات إضافية", en: "Additional notes" } as L,
   notesPh: {
-    ar: "أخبرنا عن أي ألم أو قلق أو موعد سابق...",
-    en: "Tell us about any pain, concerns or previous treatment...",
+    ar: "ملاحظة قصيرة (بدون أي تفاصيل طبية أو تاريخ مرضي)",
+    en: "Short note (no medical details or health history)",
   } as L,
   errName: { ar: "يرجى إدخال الاسم الكامل", en: "Please enter your full name" } as L,
   errPhone: { ar: "يرجى إدخال رقم هاتف صحيح", en: "Please enter a valid phone number" } as L,
@@ -323,10 +323,26 @@ export const ui = {
   errService: { ar: "يرجى اختيار الخدمة", en: "Please select a treatment" } as L,
   errDate: { ar: "يرجى اختيار التاريخ", en: "Please choose a date" } as L,
   errTime: { ar: "يرجى اختيار الوقت", en: "Please choose a time" } as L,
-  successTitle: { ar: "اكتملت تجربة النموذج", en: "Form demonstration complete" } as L,
+  successTitle: { ar: "تم حفظ طلبك التجريبي", en: "Your demo request was saved" } as L,
   successDesc: {
-    ar: "تم التحقق من البيانات في هذه الصفحة فقط. لم تُرسل أو تُحفظ ولا يوجد موعد أو متابعة فعلية.",
-    en: "Details were validated on this page only. Nothing was sent or stored; there is no appointment or follow-up.",
+    ar: "تم تسجيل الطلب في قاعدة بيانات المشروع الأكاديمي. هذا ليس موعداً حقيقياً ولن يتواصل معك أحد.",
+    en: "The request was recorded in the academic project's database. This is not a real appointment and no one will contact you.",
+  } as L,
+  errNote: {
+    ar: "الملاحظة طويلة جداً (٥٠٠ حرف كحد أقصى)",
+    en: "Note is too long (500 characters max)",
+  } as L,
+  errDateRange: {
+    ar: "اختر تاريخاً من اليوم وحتى ١٨٠ يوماً قادمة",
+    en: "Choose a date from today up to 180 days ahead",
+  } as L,
+  errSubmit: {
+    ar: "تعذّر حفظ الطلب الآن. لم يُحفظ شيء؛ يرجى المحاولة مرة أخرى.",
+    en: "We couldn't save your request right now. Nothing was saved; please try again.",
+  } as L,
+  errCheckFields: {
+    ar: "يرجى مراجعة الحقول المحددة",
+    en: "Please review the highlighted fields",
   } as L,
   bookAnother: { ar: "حجز موعد آخر", en: "Book another appointment" } as L,
   bookAside1: {
@@ -334,18 +350,99 @@ export const ui = {
     en: "Demo form; no appointment confirmation",
   } as L,
   bookAside2: { ar: "استخدم بيانات خيالية فقط", en: "Use fictional details only" } as L,
-  bookAside3: { ar: "لا تُرسل البيانات أو تُحفظ", en: "Nothing is sent or stored" } as L,
+  bookAside3: {
+    ar: "يُحفظ الطلب للعرض التجريبي فقط؛ لا تُدخل معلومات طبية",
+    en: "Requests are stored for the demo only; don't enter medical information",
+  } as L,
   bookAside4: { ar: "لا توجد خدمة علاجية فعلية", en: "No real treatment service is offered" } as L,
   prefer: { ar: "تفضل الحجز مباشرة؟", en: "Prefer to book directly?" } as L,
 };
 
 /** Fictional options for the demo form, not opening hours or real availability. */
-export const timeSlots: L[] = [
-  { ar: "٩:٠٠ صباحاً", en: "9:00 AM" },
-  { ar: "١٠:٣٠ صباحاً", en: "10:30 AM" },
-  { ar: "١٢:٠٠ ظهراً", en: "12:00 PM" },
-  { ar: "٢:٠٠ مساءً", en: "2:00 PM" },
-  { ar: "٤:٠٠ مساءً", en: "4:00 PM" },
-  { ar: "٦:٠٠ مساءً", en: "6:00 PM" },
-  { ar: "٨:٠٠ مساءً", en: "8:00 PM" },
+export const timeSlots: { value: string; label: L }[] = [
+  { value: "09:00", label: { ar: "٩:٠٠ صباحاً", en: "9:00 AM" } },
+  { value: "10:30", label: { ar: "١٠:٣٠ صباحاً", en: "10:30 AM" } },
+  { value: "12:00", label: { ar: "١٢:٠٠ ظهراً", en: "12:00 PM" } },
+  { value: "14:00", label: { ar: "٢:٠٠ مساءً", en: "2:00 PM" } },
+  { value: "16:00", label: { ar: "٤:٠٠ مساءً", en: "4:00 PM" } },
+  { value: "18:00", label: { ar: "٦:٠٠ مساءً", en: "6:00 PM" } },
+  { value: "20:00", label: { ar: "٨:٠٠ مساءً", en: "8:00 PM" } },
 ];
+
+/** Copy for the private administrator area. */
+export const adminUi = {
+  loginTitle: { ar: "دخول المسؤول", en: "Administrator sign-in" } as L,
+  loginDesc: {
+    ar: "منطقة خاصة بمسؤول المشروع فقط. لا يوجد تسجيل حسابات جديدة.",
+    en: "Private area for the project administrator only. New account registration is not available.",
+  } as L,
+  emailLabel: { ar: "البريد الإلكتروني", en: "Email address" } as L,
+  sendLink: { ar: "أرسل رابط الدخول", en: "Send sign-in link" } as L,
+  sendingLink: { ar: "جارٍ الإرسال...", en: "Sending..." } as L,
+  linkSent: {
+    ar: "إذا كان هذا البريد مخولاً، فستصلك رسالة تحتوي رابط الدخول. افتح الرابط على هذا الجهاز.",
+    en: "If this email is authorized, you'll receive a sign-in link. Open it on this device.",
+  } as L,
+  linkError: {
+    ar: "تعذّر إرسال الرابط الآن. حاول مرة أخرى بعد قليل.",
+    en: "Couldn't send the link right now. Please try again shortly.",
+  } as L,
+  invalidEmail: {
+    ar: "يرجى إدخال بريد إلكتروني صحيح",
+    en: "Please enter a valid email address",
+  } as L,
+  dashboardTitle: { ar: "طلبات المواعيد", en: "Appointment requests" } as L,
+  dashboardDesc: {
+    ar: "بيانات تجريبية لمشروع أكاديمي؛ لا تمثل مرضى أو مواعيد حقيقية.",
+    en: "Demo data for an academic project; not real patients or appointments.",
+  } as L,
+  signOut: { ar: "تسجيل الخروج", en: "Sign out" } as L,
+  checking: { ar: "جارٍ التحقق من الصلاحية...", en: "Checking access..." } as L,
+  forbiddenTitle: { ar: "غير مصرح", en: "Not authorized" } as L,
+  forbiddenDesc: {
+    ar: "هذا الحساب لا يملك صلاحية الوصول إلى لوحة الإدارة.",
+    en: "This account does not have access to the admin dashboard.",
+  } as L,
+  total: { ar: "الإجمالي", en: "Total" } as L,
+  all: { ar: "الكل", en: "All" } as L,
+  search: { ar: "ابحث بالاسم أو الهاتف أو البريد", en: "Search by name, phone or email" } as L,
+  loading: { ar: "جارٍ التحميل...", en: "Loading..." } as L,
+  empty: { ar: "لا توجد طلبات مطابقة.", en: "No matching requests." } as L,
+  loadError: {
+    ar: "تعذّر تحميل الطلبات. حاول مرة أخرى.",
+    en: "Couldn't load requests. Please try again.",
+  } as L,
+  retry: { ar: "إعادة المحاولة", en: "Try again" } as L,
+  colName: { ar: "الاسم", en: "Name" } as L,
+  colWhen: { ar: "الموعد المطلوب", en: "Requested slot" } as L,
+  colService: { ar: "الخدمة", en: "Treatment" } as L,
+  colStatus: { ar: "الحالة", en: "Status" } as L,
+  colReceived: { ar: "تاريخ الاستلام", en: "Received" } as L,
+  details: { ar: "تفاصيل الطلب", en: "Request details" } as L,
+  view: { ar: "عرض", en: "View" } as L,
+  phone: { ar: "الهاتف", en: "Phone" } as L,
+  email: { ar: "البريد", en: "Email" } as L,
+  doctor: { ar: "الطبيب", en: "Doctor" } as L,
+  note: { ar: "ملاحظة", en: "Note" } as L,
+  language: { ar: "لغة الطلب", en: "Request language" } as L,
+  none: { ar: "—", en: "—" } as L,
+  anyDoctor: { ar: "أي طبيب", en: "Any doctor" } as L,
+  changeStatus: { ar: "تغيير الحالة", en: "Change status" } as L,
+  statusSaved: { ar: "تم تحديث الحالة", en: "Status updated" } as L,
+  statusError: { ar: "تعذّر تحديث الحالة", en: "Couldn't update status" } as L,
+  delete: { ar: "حذف", en: "Delete" } as L,
+  deleteTitle: { ar: "حذف هذا الطلب؟", en: "Delete this request?" } as L,
+  deleteDesc: {
+    ar: "سيُحذف الطلب نهائياً ولا يمكن التراجع عن ذلك.",
+    en: "The request will be permanently deleted. This can't be undone.",
+  } as L,
+  cancel: { ar: "إلغاء", en: "Cancel" } as L,
+  deleted: { ar: "تم حذف الطلب", en: "Request deleted" } as L,
+  deleteError: { ar: "تعذّر حذف الطلب", en: "Couldn't delete request" } as L,
+  status: {
+    pending: { ar: "قيد الانتظار", en: "Pending" } as L,
+    confirmed: { ar: "مؤكد", en: "Confirmed" } as L,
+    cancelled: { ar: "ملغى", en: "Cancelled" } as L,
+    completed: { ar: "مكتمل", en: "Completed" } as L,
+  },
+};

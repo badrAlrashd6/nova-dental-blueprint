@@ -522,8 +522,8 @@ export const faqs: Faq[] = [
     category: { ar: "المواعيد", en: "Appointments" },
     question: { ar: "كيف أحجز موعداً في عيادة نوفا؟", en: "How do I book an appointment at Nova?" },
     answer: {
-      ar: "النموذج تجربة أكاديمية فقط؛ لا يرسل أو يحفظ بيانات ولا ينشئ موعداً. بيانات التواصل غير متاحة.",
-      en: "The form is an academic demonstration only; it does not send or store data or create an appointment. Contact details are unavailable.",
+      ar: "النموذج تجربة أكاديمية؛ يُحفظ الطلب في قاعدة بيانات العرض التجريبي فقط ولا ينشئ موعداً حقيقياً. بيانات التواصل غير متاحة.",
+      en: "The form is an academic demonstration; requests are stored in the demo database only and no real appointment is created. Contact details are unavailable.",
     },
   },
   {

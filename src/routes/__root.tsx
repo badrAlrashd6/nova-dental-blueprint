@@ -17,6 +17,8 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { ui } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { LanguageProvider, useLang } from "@/lib/i18n";
+import { Toaster } from "@/components/ui/sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 function NotFoundComponent() {
   const { t } = useLang();
@@ -137,6 +139,17 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  // Single auth listener: re-run route gates on identity changes only.
+  useEffect(() => {
+    const { data } = supabase.auth.onAuthStateChange((event) => {
+      if (event !== "SIGNED_IN" && event !== "SIGNED_OUT" && event !== "USER_UPDATED") return;
+      router.invalidate();
+      if (event !== "SIGNED_OUT") queryClient.invalidateQueries();
+    });
+    return () => data.subscription.unsubscribe();
+  }, [router, queryClient]);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -148,6 +161,7 @@ function RootComponent() {
           </main>
           <SiteFooter />
         </div>
+        <Toaster position="top-center" />
       </LanguageProvider>
     </QueryClientProvider>
   );

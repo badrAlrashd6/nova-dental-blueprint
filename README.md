@@ -4,7 +4,7 @@ A bilingual (Arabic / English) website for a fictional dental clinic in Damascus
 
 ## 1. Project overview
 
-The site is front-end only. It has eight pages: Home, About, Services, Doctors, Book Appointment, Testimonials, FAQ and Contact. Arabic is the default language (RTL) and English is the secondary language (LTR). The site remembers the visitor's language choice in `localStorage`.
+The site has eight public pages plus a private admin area. Booking requests are stored in the project's built-in Lovable Cloud database. It has eight pages: Home, About, Services, Doctors, Book Appointment, Testimonials, FAQ and Contact. Arabic is the default language (RTL) and English is the secondary language (LTR). The site remembers the visitor's language choice in `localStorage`.
 
 ## 2. Academic purpose
 
@@ -91,7 +91,7 @@ bun run format      # Prettier
 
 ## 11. Environment variables
 
-The app needs **no** environment variables. There are no secrets, API keys or backend connections. If you add variables later:
+Lovable Cloud provides `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY` (browser-safe) and the server-only `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SERVICE_ROLE_KEY`. The service-role key is read only inside server function handlers and is never sent to the browser. Rules:
 
 - Only `VITE_*` variables are exposed to the browser. Never put secrets in them.
 - Read server-only values through `process.env` inside server code.
@@ -99,8 +99,9 @@ The app needs **no** environment variables. There are no secrets, API keys or ba
 
 ## 12. Current limitations
 
-- Front-end only: no backend, no database and no authentication.
-- The booking form validates input but **does not send or store data**. Contact is an information page; there is no contact form in the current repository.
+- Booking requests are stored (see section 17). There is still no contact form, no payments, no emails and no rate limiting beyond duplicate protection.
+- The single admin account is not created yet; the owner must invite it (section 17). Signed-in admin flows are therefore untested.
+- The standalone build (`vite.config.standalone.ts`) has not been checked with the new backend code.
 - Contact details (phone, WhatsApp, email, address, map, social, hours) are **placeholders** until real information is provided in `src/config/contact.ts`. Buttons for missing details are hidden automatically.
 - No test script or test framework is configured. The unsupported `src/config/contact.test.ts` was removed in the Phase 1 repair; do not treat its previous assertions as a verified test suite.
 
@@ -121,3 +122,23 @@ The Phase 1 repair report is in `PHASE1_AUDIT.md` and records actual command out
 ## 16. Remaining platform references
 
 The hosted Vite configuration/package, lockfile, Bun installation exceptions, `.lovable` metadata and managed block in `AGENTS.md` remain intentionally. The historical `.lovable/plan.md` still mentions Kuwait/Salmiya and old fictional contacts; it is not application data and was left untouched as requested. The workspace display name reported by the owner is “Kuwait Dental Elegance”, which conflicts with Nova Dental Clinic; workspace metadata was not changed or independently queried. No publication, visibility or database settings were changed.
+
+## 17. Phase 2 — booking storage and admin area
+
+Implemented:
+
+- **Table `appointment_requests`** (migration `drizzle/migrations/0000_create_appointment_requests.sql`): UUID id, unique `request_key` (idempotency), created/updated timestamps, preferred date and time slot, service and optional doctor slugs, full name, phone, optional email, optional note (≤500 chars), locale, and status `pending | confirmed | cancelled | completed`. CHECK constraints mirror the allowlists in `src/lib/booking.ts`; a trigger forces `pending` on insert and limits dates to today…+180 days (Damascus time). Indexes on date, status+created_at, created_at, phone and lower(name). No medical history is collected.
+- **Access rules**: visitors have no privileges on the table. Requests are created only by the `submitBooking` server function after Zod validation, using the server-only client. Read/status-update/delete require the `is_nova_admin()` database function (signed-in, email-confirmed `badralrashd6@gmail.com`) and the same check repeated in every admin server function.
+- **Auth**: email sign-in enabled, public signup disabled. `/admin/login` sends a magic link with `shouldCreateUser: false`. `/admin` is gated client-side and every data action re-checks on the server.
+- **Admin dashboard**: counts, status filters, search by name/phone/email, detail dialog, status changes, delete with confirmation; Arabic/English with RTL/LTR.
+
+Checks actually run (17 Nov 2026):
+
+- Managed preview build: `build OK`. ESLint and Prettier on changed files: passed.
+- Browser test of `/book`: empty submit shows field errors; a fictional submit stored one row (confirmed by database query); replaying the identical request returned "duplicate" and stored nothing new; tampered requests (unknown service, past date) were rejected by the server.
+- Direct database API calls with the public key: select, insert, delete and `is_nova_admin` all returned *permission denied*.
+- Admin server functions without a sign-in or with a fake token: rejected. `/admin` signed out redirects to `/admin/login`.
+- Test rows were deleted afterwards.
+- **Not tested**: signed-in admin dashboard and rejection of a signed-in non-admin account (no account exists yet). `bun run typecheck` and `bun run build:standalone` remain **unverified**; Phase 1 is not complete.
+
+Owner action required: **More → Users → Add user → Send invitation** to `badralrashd6@gmail.com`, then accept the email, open `/admin/login`, request a link and open it on the same device.

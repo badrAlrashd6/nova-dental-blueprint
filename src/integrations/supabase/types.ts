@@ -14,16 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      appointment_requests: {
+        Row: {
+          created_at: string
+          doctor_slug: string | null
+          email: string | null
+          full_name: string
+          id: string
+          locale: string
+          note: string | null
+          phone: string
+          preferred_date: string
+          preferred_time: string
+          request_key: string
+          service_slug: string
+          status: Database["public"]["Enums"]["appointment_status"]
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          doctor_slug?: string | null
+          email?: string | null
+          full_name: string
+          id?: string
+          locale?: string
+          note?: string | null
+          phone: string
+          preferred_date: string
+          preferred_time: string
+          request_key: string
+          service_slug: string
+          status?: Database["public"]["Enums"]["appointment_status"]
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          doctor_slug?: string | null
+          email?: string | null
+          full_name?: string
+          id?: string
+          locale?: string
+          note?: string | null
+          phone?: string
+          preferred_date?: string
+          preferred_time?: string
+          request_key?: string
+          service_slug?: string
+          status?: Database["public"]["Enums"]["appointment_status"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_nova_admin: { Args: never; Returns: boolean }
     }
     Enums: {
-      [_ in never]: never
+      appointment_status: "pending" | "confirmed" | "cancelled" | "completed"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +200,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      appointment_status: ["pending", "confirmed", "cancelled", "completed"],
+    },
   },
 } as const

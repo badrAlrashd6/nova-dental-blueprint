@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { Check, CheckCircle2, MessageCircle, Phone } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Section } from "@/components/site/Section";
@@ -9,6 +10,15 @@ import { doctors, services } from "@/content/clinic";
 import { useLang, type L } from "@/lib/i18n";
 import { navLinks, site, timeSlots, ui } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import {
+  MAX_DAYS_AHEAD,
+  addDays,
+  bookingSchema,
+  damascusToday,
+  invalidFields,
+  type BookingField,
+} from "@/lib/booking";
+import { submitBooking } from "@/lib/booking.functions";
 
 export const Route = createFileRoute("/book")({
   head: () => ({
@@ -33,39 +43,91 @@ export const Route = createFileRoute("/book")({
   component: BookPage,
 });
 
-type Fields = "name" | "phone" | "email" | "service" | "date" | "time";
+type Fields = BookingField;
+
+const fieldMessages: Record<BookingField, L> = {
+  fullName: ui.errName,
+  phone: ui.errPhone,
+  email: ui.errEmail,
+  service: ui.errService,
+  doctor: ui.errService,
+  date: ui.errDateRange,
+  time: ui.errTime,
+  note: ui.errNote,
+};
+
+function newRequestKey(): string {
+  return crypto.randomUUID();
+}
 
 function BookPage() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const crumb = navLinks.find((l) => l.to === "/book")?.label ?? ui.bookHeroEyebrow;
   const [errors, setErrors] = useState<Partial<Record<Fields, L>>>({});
+  const [formError, setFormError] = useState<L | null>(null);
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  // One key per filled-in form: retries and double clicks reuse it, so the
+  // server stores the request at most once.
+  const [requestKey, setRequestKey] = useState<string | null>(null);
+  const [today, setToday] = useState<string | null>(null);
+  const submit = useServerFn(submitBooking);
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  useEffect(() => {
+    setRequestKey(newRequestKey());
+    setToday(damascusToday());
+  }, []);
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (sending || !requestKey) return;
     const form = e.currentTarget;
     const data = new FormData(form);
-    const get = (k: string) => String(data.get(k) ?? "").trim();
-    const next: Partial<Record<Fields, L>> = {};
+    const get = (k: string) => String(data.get(k) ?? "");
+    const payload = {
+      requestKey,
+      fullName: get("name"),
+      phone: get("phone"),
+      email: get("email"),
+      service: get("service"),
+      doctor: get("doctor"),
+      date: get("date"),
+      time: get("time"),
+      note: get("notes"),
+      locale: lang,
+    };
 
-    if (get("name").length < 3) next.name = ui.errName;
-    if (get("phone").replace(/\D/g, "").length < 8) next.phone = ui.errPhone;
-    const email = get("email");
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) next.email = ui.errEmail;
-    if (!get("service")) next.service = ui.errService;
-    if (!get("date")) next.date = ui.errDate;
-    if (!get("time")) next.time = ui.errTime;
+    const parsed = bookingSchema.safeParse(payload);
+    if (!parsed.success) {
+      const next: Partial<Record<Fields, L>> = {};
+      for (const f of invalidFields(parsed.error)) next[f] = fieldMessages[f];
+      setErrors(next);
+      setFormError(ui.errCheckFields);
+      return;
+    }
 
-    setErrors(next);
-    if (Object.keys(next).length > 0) return;
-
+    setErrors({});
+    setFormError(null);
     setSending(true);
-    window.setTimeout(() => {
+    try {
+      const result = await submit({ data: payload });
+      if (result.ok) {
+        setSent(true);
+        form.reset();
+        setRequestKey(newRequestKey());
+      } else if (result.reason === "validation") {
+        const next: Partial<Record<Fields, L>> = {};
+        for (const f of result.fields) next[f] = fieldMessages[f];
+        setErrors(next);
+        setFormError(ui.errCheckFields);
+      } else {
+        setFormError(ui.errSubmit);
+      }
+    } catch {
+      setFormError(ui.errSubmit);
+    } finally {
       setSending(false);
-      setSent(true);
-      form.reset();
-    }, 700);
+    }
   }
 
   const fieldClass =
@@ -116,7 +178,7 @@ function BookPage() {
                       placeholder={t(ui.fullNamePh)}
                       className={fieldClass}
                     />
-                    <FieldError error={errors.name} />
+                    <FieldError error={errors.fullName} />
                   </div>
 
                   <div>
@@ -179,13 +241,21 @@ function BookPage() {
                         </option>
                       ))}
                     </select>
+                    <FieldError error={errors.doctor} />
                   </div>
 
                   <div>
                     <label htmlFor="date" className="text-sm font-medium text-foreground">
                       {t(ui.dateField)}
                     </label>
-                    <input id="date" name="date" type="date" className={fieldClass} />
+                    <input
+                      id="date"
+                      name="date"
+                      type="date"
+                      min={today ?? undefined}
+                      max={today ? addDays(today, MAX_DAYS_AHEAD) : undefined}
+                      className={fieldClass}
+                    />
                     <FieldError error={errors.date} />
                   </div>
 
@@ -198,8 +268,8 @@ function BookPage() {
                         {t(ui.timePh)}
                       </option>
                       {timeSlots.map((slot) => (
-                        <option key={slot.en} value={slot.en}>
-                          {t(slot)}
+                        <option key={slot.value} value={slot.value}>
+                          {t(slot.label)}
                         </option>
                       ))}
                     </select>
@@ -215,16 +285,27 @@ function BookPage() {
                       id="notes"
                       name="notes"
                       rows={4}
+                      maxLength={500}
                       placeholder={t(ui.notesPh)}
                       className={fieldClass}
                     />
+                    <FieldError error={errors.note} />
                   </div>
                 </div>
 
+                {formError && (
+                  <p
+                    role="alert"
+                    className="mt-6 rounded-2xl bg-destructive/10 px-4 py-3 text-sm text-destructive"
+                  >
+                    {t(formError)}
+                  </p>
+                )}
                 <Button
                   type="submit"
                   size="lg"
-                  disabled={sending}
+                  disabled={sending || !requestKey}
+                  aria-busy={sending}
                   className="mt-8 w-full rounded-full bg-gradient-primary px-7 shadow-glow sm:w-auto"
                 >
                   {sending ? t(ui.sending) : t(ui.send)}
