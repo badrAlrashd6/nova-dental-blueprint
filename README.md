@@ -142,3 +142,10 @@ Checks actually run (17 Nov 2026):
 - **Not tested**: signed-in admin dashboard and rejection of a signed-in non-admin account (no account exists yet). `bun run typecheck` and `bun run build:standalone` remain **unverified**; Phase 1 is not complete.
 
 Owner action required: **More → Users → Add user → Send invitation** to `badralrashd6@gmail.com`, then accept the email, open `/admin/login`, request a link and open it on the same device.
+
+### Re-verification (17 Nov 2026, after commit d8869e1)
+
+- Database: row security on; visitors have no table privileges; signed-in role has SELECT, DELETE and UPDATE on `status` only, all limited to admin policies. Public-key REST calls for select/insert/update/delete returned `42501 permission denied`. Public signup returned `signup_disabled`. Zero auth accounts exist (admin not yet invited).
+- Linter: one warning that signed-in users may call `is_nova_admin()`; intentional, it only returns true/false for the caller and is needed by the admin policies.
+- Browser: a fictional booking saved and showed the success message; replaying the identical request returned `duplicate` with no new row; signed-out `/admin` redirected to `/admin/login`; the sign-in page switched to English with LTR. The test row was deleted.
+- Not run: `bun run typecheck`, `bun run build:standalone` (manual builds/typechecks are disallowed in this environment). Signed-in admin dashboard remains untested until the account exists.
